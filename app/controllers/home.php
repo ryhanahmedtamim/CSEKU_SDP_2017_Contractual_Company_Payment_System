@@ -6,12 +6,9 @@
 class home extends Controller
 {
 	
-	public function index($name = '')
+	public function index()
 	{
-		$user = $this->model('User');
-
-        $user->name = $name;
-		echo $user->name;
+		$this->view('home/index');
 	}
 }
 

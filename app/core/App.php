@@ -13,6 +13,7 @@ class App
 	{
 		$url = $this->perseUrl();
 
+
 		if(file_exists('../app/controllers/'. $url[0] .'.php'))
 		{
 			$this->controller = $url[0];
