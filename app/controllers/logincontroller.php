@@ -8,7 +8,7 @@ class logincontroller extends Controller
 	
 	public function index()
 	{
-		$this->view('login/index');
+		$this->view('login/login');
 	}
 }
 

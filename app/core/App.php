@@ -4,7 +4,7 @@
 */
 class App 
 {
-	protected $controller = 'home';
+	protected $controller = 'homecontroller';
     protected $methode = 'index';
     protected $paramiters = [];
 
@@ -13,11 +13,14 @@ class App
 	{
 		$url = $this->perseUrl();
 
+		//print_r($url);
 
-		if(file_exists('../app/controllers/'. $url[0] .'.php'))
+
+		if(file_exists('../app/controllers/'. $url[0] .'controller.php'))
 		{
-			$this->controller = $url[0];
+			$this->controller = $url[0].'controller';
 			unset($url[0]);
+
 		}
 		require_once '../app/controllers/'. $this->controller .'.php';
 
@@ -45,6 +48,7 @@ class App
 			return $url = explode('/' ,filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
 		}
 	}
+
 
 }
 
