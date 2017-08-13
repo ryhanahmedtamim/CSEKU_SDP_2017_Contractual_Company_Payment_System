@@ -20,7 +20,7 @@ class registercontroller extends Controller
 	  $address = $_POST['address'];
 	  $userType = $_POST['userType'];
 	  $password = $_POST['password'];
-	  $password2 = $_POST['password2'];
+	  $confirm_password = $_POST['confirm_password'];
 
 	  $User = $this->model("User");
 

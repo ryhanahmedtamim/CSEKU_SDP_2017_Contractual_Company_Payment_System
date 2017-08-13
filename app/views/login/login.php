@@ -32,7 +32,7 @@
                         <input type="password" id="password" name ="pass" required autofocus />
                    
                     
-                         <button type="submit" class="button button-radious-8 button-hover-blue">
+                         <button type="submit" class="button-submit  button-radious-8 button-hover-blue">
                                         Login
                                     </button>
                     

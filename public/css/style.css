@@ -63,7 +63,8 @@
     margin-left: 30%;
 }
 
-.button {
+.button-submit {
+    float: right;
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -72,7 +73,9 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin-bottom: 10px;
+    margin: 4px 190px;
+
     cursor: pointer;
 }
 
@@ -122,33 +125,29 @@
     background-color: #4CAF50;
 }
 
-#user{
-    margin-left: 0px;
-    margin-right: 30px;
-}
+
 
 input[type=text], select {
-    align-content: right;
-    width: 100%;
-    padding: 10px 20px;
-    margin: 1px 0;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 input[type=email], select {
-    align-content: right;
-    width: 100%;
-    padding: 10px 20px;
-    margin: 1px 0;
+    
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 input[type=password], select {
-    width: 100%;
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -174,4 +173,17 @@ input[type=submit]:hover {
 
 .div-home-2{
     background-color:#1abc9c;height: 650px
+}
+
+label {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+    color: #333;
+    height: 20px;
+    width: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: right;
+    margin-right:15px;
+    float:left;
 }
