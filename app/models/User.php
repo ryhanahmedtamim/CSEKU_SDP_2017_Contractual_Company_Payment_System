@@ -3,10 +3,23 @@
 /**
 * 
 */
-class User 
+require_once '../app/core/Model.php';
+class User extends Model
 {
+	
+    
 
-   public $name ;	
+	function __construct()
+	{
+		
+		//$db = mysqli_query($query,$db);
+	}
+
+	function get(){
+	$queryString = "SELECT * FROM users";
+		
+		print_r( $this->query($queryString));
+}
 
 }
 

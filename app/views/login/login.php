@@ -24,12 +24,12 @@
                         
                         <div style="display: inline;">
                          <label for="user">Username</label>
-                        <input type="text" id="user" name ="userName" />
+                        <input type="text" id="user" name ="userName" required autofocus/>
                         </div>
                     
                    
                          <label for="password">Password</label>
-                        <input type="password" id="password" name ="pass" />
+                        <input type="password" id="password" name ="pass" required autofocus />
                    
                     
                          <button type="submit" class="button button-radious-8 button-hover-blue">
