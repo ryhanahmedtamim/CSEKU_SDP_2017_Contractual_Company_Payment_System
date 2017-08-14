@@ -14,20 +14,35 @@ class registercontroller extends Controller
 	public function register()
 	{
 	  $Name = $_POST['Name'];
-	  $usrName = $_POST['userName'];
+	  $userName = $_POST['userName'];
 	  $email = $_POST['email'];
 	  $phoneNumbe = $_POST['phoneNumber'];
 	  $address = $_POST['address'];
 	  $userType = $_POST['userType'];
 	  $password = $_POST['password'];
-	  $confirm_password = $_POST['confirm_password'];
+
+	  $password = md5($password);
+
 
 	  $User = $this->model("User");
 
-	 $User->get();
+	  $result = $User->registerUser($Name , $userName, $email, $phoneNumbe, $address,$userType,$password);
+	  if($result == true)
+	  {
+	  	/* Redirect browser */
+	  	header("Location: http://localhost/ccps/public/"); 
+         exit();
+	  }
+	  else 
+	  {
 
-	  //echo $Name;
+	  	$this->view('register/register',"This username is not abilable");
+	  }
+
+
+	  
 	}
+
 }
 
 ?>

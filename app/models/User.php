@@ -15,11 +15,40 @@ class User extends Model
 		//$db = mysqli_query($query,$db);
 	}
 
-	function get(){
-	$queryString = "SELECT * FROM users";
-		
-		print_r( $this->query($queryString));
-}
+	function getAllUser()
+	{	
+			
+	}
+
+	function registerUser($Name , $userName, $email, $phoneNumbe, $address,$userType,$password)
+	{
+        $querString = "INSERT INTO `users` (`id`, `name`, `username`, `email`, `contact_no`, `rolename`, `address`, `password`, `approve`) VALUES (NULL, '$Name', '$userName', '$email', '$phoneNumbe', '$userType', '$address', '$password', '0')" ;
+        return $this->booleanQuery($querString); 
+	}
+
+	function loginUser($userName,$password)
+	{
+		$querString = "SELECT * FROM `users` WHERE username = '$userName' AND password = '$password'";
+		$user = $this->dataQuery($querString);
+		session_start();
+
+		if($user['0'] != NULL)
+		{
+			if($user['0']['approve'] == 1){
+			$_SESSION['userName'] = $user['0']['username'];
+			$_SESSION['rolename'] = $user['0']['rolename'];
+			$_SESSION['id'] = $user['0']['id'];
+			$_SESSION['login'] = 1;
+
+			return true;
+			}		
+
+		}
+		else
+		{
+			return false;
+		}
+	}
 
 }
 

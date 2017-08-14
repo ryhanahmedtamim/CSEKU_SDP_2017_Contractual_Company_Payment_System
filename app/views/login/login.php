@@ -20,7 +20,7 @@
 
                 <div>Login</div>
                 <br>
-                <form action ="process.php" method="POST">
+                <form action ="login/login" method="POST">
                         
                         <div style="display: inline;">
                          <label for="user">Username</label>
@@ -29,7 +29,7 @@
                     
                    
                          <label for="password">Password</label>
-                        <input type="password" id="password" name ="pass" required autofocus />
+                        <input type="password" id="password" name ="password" required autofocus />
                    
                     
                          <button type="submit" class="button-submit  button-radious-8 button-hover-blue">

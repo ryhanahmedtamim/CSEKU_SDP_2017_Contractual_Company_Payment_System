@@ -12,7 +12,11 @@
 
         var password = document.getElementById("password")
               , confirm_password = document.getElementById("confirm_password");
-
+        var len = 6;
+            if(password.value < len)
+            {
+            password.setCustomValidity("Passwords must be greater than 6");
+            }
             if(password.value != confirm_password.value)
             {
               confirm_password.setCustomValidity("Passwords Don't Match");
