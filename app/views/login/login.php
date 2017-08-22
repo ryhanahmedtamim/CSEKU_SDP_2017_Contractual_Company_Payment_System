@@ -1,3 +1,8 @@
+    <?php 
+      session_start ();
+    ?>
+
+
     <!DOCTYPE HTML>
 
     <html>
@@ -25,12 +30,21 @@
                         <div style="display: inline;">
                          <label for="user">Username</label>
                         <input type="text" id="user" name ="userName" required autofocus/>
+
+                        <CENTER >
+                        <?php
+                       if($data != NULL)
+                        {
+
+                            print_r($data);
+                        }
+                        ?>  </CENTER>
                         </div>
-                    
-                   
+
+                        <div >
                          <label for="password">Password</label>
                         <input type="password" id="password" name ="password" required autofocus />
-                   
+                        </div>
                     
                          <button type="submit" class="button-submit  button-radious-8 button-hover-blue">
                                         Login

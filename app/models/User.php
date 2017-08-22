@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 
 /**
 * 
@@ -30,7 +32,7 @@ class User extends Model
 	{
 		$querString = "SELECT * FROM `users` WHERE username = '$userName' AND password = '$password' AND approve='1'";
 		$user = $this->dataQuery($querString);
-		session_start();
+		//session_start();
 
 		if($user['0'] != NULL)
 		{
