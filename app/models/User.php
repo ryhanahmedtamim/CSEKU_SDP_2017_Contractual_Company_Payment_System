@@ -28,7 +28,7 @@ class User extends Model
 
 	function loginUser($userName,$password)
 	{
-		$querString = "SELECT * FROM `users` WHERE username = '$userName' AND password = '$password'";
+		$querString = "SELECT * FROM `users` WHERE username = '$userName' AND password = '$password' AND approve='1'";
 		$user = $this->dataQuery($querString);
 		session_start();
 

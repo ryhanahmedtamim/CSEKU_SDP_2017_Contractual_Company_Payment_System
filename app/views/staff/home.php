@@ -1,7 +1,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-    <title>NR Company</title>
+    <title>Home</title>
 
     <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
     </head>
@@ -18,7 +18,7 @@
                <div style="padding-top: 280px">
                 <div class="content">
                     <div class="title">
-                       Admin
+                    staff
                     </div>
                 </div>
             </div>
