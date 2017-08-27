@@ -12,7 +12,11 @@ class clientcontroller extends Controller
 	
 			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'Client')
 			{
-                 $this->view('client/home');
+				 $Contract_details = $this->model("Contract_details");
+				 $id = $_SESSION['id'];
+			     $contracts = $Contract_details->getClientContract($id);
+			     //print_r($contracts);
+                 $this->view('client/home',$contracts);
  
 			}
 			else

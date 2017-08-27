@@ -1,3 +1,7 @@
+
+
+
+
     <!DOCTYPE html>
     <html>
     <head>
@@ -12,6 +16,7 @@
          include ('layout/layout.php');
          ?>
                     
+
 <div class="container-fluid">
     <div class="row">
 
@@ -24,17 +29,19 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Client Name</th>
-                                <th>Phone Number</th>    
+                                <th>Client Name</th>   
+                                <th>Staff Name</th> 
                                 <th>Start Date</th>
-                                <th>Payment</th>  
+                                <th>Staff Payment</th> 
+                                <th>Client Pay</th> 
                                 <th>Action</th>
                             </tr>
                         </thead>
                         
                         <tbody>  
                         <?php
-                        if($data != null){ 
+
+                        if($data != NULL){                       
                         foreach ($data as $contract) {
                              
                          
@@ -43,7 +50,7 @@
                             <tr>
                             
                                 <td><?php echo $contract['client_name'] ; ?></td>
-                                <td><?php echo $contract['contact_no'] ; ?></td>
+                                <td><?php echo $contract['staff_name'] ; ?></td>
                                 <td><?php echo $contract['start_date'] ; ?></td>
 
                                 <td>
@@ -51,11 +58,13 @@
                             echo $contract['payment_for_staff_monthly'] ; 
                             ?>   
                             </td>
-                                                           
-                                     <td > <button class=" button-radious-8 button-send  button-hover-blue " >
-                                        Accept
-                                    </button>
-
+                                
+                            <td>
+                            <?php 
+                            echo $contract['payment_from_client_monthly'] ; 
+                            ?>   
+                            </td>
+                            <td>
                                      <button class=" button-radious-8 button-delete button-hovor-delete"" >
                                         Delete
                                     </button> 

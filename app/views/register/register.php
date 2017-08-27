@@ -32,7 +32,7 @@
       </script>
         </head>
 
-        <body>
+        <body class="body-home">
 
          <ul class="ul1">
            <li class="li1">
@@ -40,7 +40,7 @@
            <li class="li1"><a class = "li-a"  href="/ccps/public/login">Login</a></li>
            <li class="li1"><a class = "li-a"  href="">Register</a></li>
         </ul>
-            <div  style="padding:1px;margin-top:10px;background-color:#1abc9c;height:relative;"> 
+            <div class="body-home"> 
 
             <div class="div1">
 

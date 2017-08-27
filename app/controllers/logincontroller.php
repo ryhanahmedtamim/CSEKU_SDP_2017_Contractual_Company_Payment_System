@@ -8,7 +8,21 @@ class logincontroller extends Controller
 	
 	public function index()
 	{
-		$this->view('login/login');
+		if(isset($_SESSION['login']))
+		{
+	
+			if($_SESSION['login'] == '1')
+			{
+				 $userType = $_SESSION['rolename'];
+	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+			}
+					
+		}
+		else
+		{
+			     $this->view('login/login');
+         	    exit();
+		}
 
 	}
 
@@ -38,7 +52,7 @@ class logincontroller extends Controller
 	  {
 	  	/* Redirect browser */
 	  	$userType = $_SESSION['rolename'];
-	  	$_SESSION['id1'] = 1; 
+	  	
 	  	//header("Location: http://google.com"); 
 	  	//echo "<br/> Location: http://localhost/ccps/public/".$userType."/home";
 

@@ -18,7 +18,7 @@
 
 
     <div class="col-md-8 col-md-offset-2" style="margin-top:50px;">
-            <h1> Cotract Requests</h1><hr>
+            <h1>Active Contract</h1><hr>
             <div class="panel panel-default" >
                 <div class="panel-body">                     
                     <table class="table table-bordered">
@@ -26,7 +26,7 @@
                             <tr>
                                 <th>Client Name</th>
                                 <th>Phone Number</th>    
-                                <th>Start Date</th>
+                                <th>Month Limit</th>
                                 <th>Payment</th>  
                                 <th>Action</th>
                             </tr>
@@ -44,7 +44,7 @@
                             
                                 <td><?php echo $contract['client_name'] ; ?></td>
                                 <td><?php echo $contract['contact_no'] ; ?></td>
-                                <td><?php echo $contract['start_date'] ; ?></td>
+                                <td><?php echo $contract['month_limit'] ; ?></td>
 
                                 <td>
                             <?php 
@@ -53,7 +53,7 @@
                             </td>
                                                            
                                      <td > <button class=" button-radious-8 button-send  button-hover-blue " >
-                                        Accept
+                                        Get Payment
                                     </button>
 
                                      <button class=" button-radious-8 button-delete button-hovor-delete"" >
@@ -78,7 +78,5 @@
         
         </div>
     </div>
-
-
     </body>
     </html>

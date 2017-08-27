@@ -3,14 +3,19 @@
 <head>
 	<title>NR Company</title>
 </head>
-<body>
+<body class="body-home">
            <ul class="ul1">
                <li class="li1">
-               <a class="li-a" href="/ccps/public/">Home</a></li>
-               <li class="li1"><a class = "li-a"  href="">Active contract</a></li>
-               <li class="li1"><a class = "li-a"  href="">User Request</a></li>
-               <li class="li1"><a class = "li-a"  href="">User</a></li>
-               <li class="li1"><a class = "li-a"  href="">Pending Contract</a></li>
+               <a class="li-a" href="/ccps/public/admin/home">Home</a></li>
+               
+               <li class="li1"><a class = "li-a"  href="/ccps/public/admin/user_request">User Request</a></li>
+
+               <li class="li1"><a class = "li-a"  href="/ccps/public/admin/alluser">User</a></li>
+               <li class="li1"><a class = "li-a"  href="/ccps/public/admin/active_contract">Active contract</a></li>
+               <li class="li1"><a class = "li-a"  href="/ccps/public/admin/pending_contract">Pending Contract</a></li>
+               <li class="li1"><a class = "li-a"  href="/ccps/public/admin/home">Contract Request</a></li>
+               <li class="li1"><a class = "li-a"  href="">Total Economical Status</a></li>
+
                <li class="li2"><a class = "li-a"  href="/ccps/public/login/logout">Logout</a></li>
 
             </ul>

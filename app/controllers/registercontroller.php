@@ -8,7 +8,21 @@ class registercontroller extends Controller
 	
 	public function index()
 	{
-		$this->view('register/register');
+		if(isset($_SESSION['login']))
+		{
+	
+			if($_SESSION['login'] == '1')
+			{
+				 $userType = $_SESSION['rolename'];
+	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+			}
+					
+		}
+		else
+		{
+			     $this->view('register/register');
+         	    exit();
+		}
 	}
 
 	public function register()

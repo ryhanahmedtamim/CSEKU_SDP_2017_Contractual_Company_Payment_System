@@ -1,8 +1,3 @@
-    <?php 
-      session_start ();
-    ?>
-
-
     <!DOCTYPE HTML>
 
     <html>
@@ -11,7 +6,7 @@
             <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
         </head>
 
-        <body>
+        <body class="body-home">
 
          <ul class="ul1">
            <li class="li1">
@@ -19,11 +14,11 @@
            <li class="li1"><a class = "li-a"  href="/ccps/public/login">Login</a></li>
            <li class="li1"><a class = "li-a"  href="/ccps/public/register">Register</a></li>
         </ul>
-            <div  style="padding:20px;margin-top:30px;background-color:#1abc9c;height:650px;"> 
+           <div class="body-home">
 
             <div class="div1">
 
-                <div>Login</div>
+                <div style="margin-left: 30px;">Login</div>
                 <br>
                 <form action ="login/login" method="POST">
                         
