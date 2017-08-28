@@ -27,13 +27,16 @@
                         <input type="text" id="user" name ="userName" required autofocus/>
 
                         <CENTER >
-                        <?php
-                       if($data != NULL)
-                        {
+                        <div class="red-font">
+                           <?php
+                             if($data != NULL)
+                              {
 
-                            print_r($data);
-                        }
-                        ?>  </CENTER>
+                               print_r($data);
+                              }
+                            ?> 
+                            </div>
+                         </CENTER>
                         </div>
 
                         <div >

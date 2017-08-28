@@ -48,7 +48,7 @@ class logincontroller extends Controller
 	  $result = $User->loginUser($userName,$password);
 
 
-	  if($result == true)
+	  if($result == "true")
 	  {
 	  	/* Redirect browser */
 	  	$userType = $_SESSION['rolename'];
@@ -59,10 +59,14 @@ class logincontroller extends Controller
 	  	header("Location: http://localhost/ccps/public/".$userType."/home"); 
         
 	  }
-	  else 
+	  else if($result == "false") 
 	  {
 
 	  	$this->view('login/login',"This username or password is not match");
+	  }
+	  else
+	  {
+	  	$this->view('login/login',$result);
 	  }
 
 	}

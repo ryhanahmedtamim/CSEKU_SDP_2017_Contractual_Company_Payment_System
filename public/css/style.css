@@ -17,8 +17,13 @@
             }
 
 
-
-
+.red-font{
+  color: red;
+}
+.disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
 
 .button-submit {
     float: right;

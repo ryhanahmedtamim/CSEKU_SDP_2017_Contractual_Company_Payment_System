@@ -51,9 +51,8 @@
                                 <td><?php  echo $user['email']; ?></td>
                                 <td><?php  echo $user['rolename']; ?></td>
                                 
-                                <td > <button class=" button-radious-8 button-hover-blue button-send" >
-                                        Accept
-                                    </button>
+                                <td > 
+                                <a class="button-radious-8 button-hover-blue button-send" href="accept_user_request">Accept</a>
 
                                      <button class=" button-radious-8 button-delete button-hovor-delete"" >
                                         Delete

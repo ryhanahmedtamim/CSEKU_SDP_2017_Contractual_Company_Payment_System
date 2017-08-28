@@ -48,12 +48,13 @@ class User extends Model
 
 	public function loginUser($userName,$password)
 	{
-		$querString = "SELECT * FROM `users` WHERE username = '$userName' AND password = '$password' AND approve='1'";
+		$querString = "SELECT * FROM `users` WHERE username = '$userName' AND password = '$password'";
 		$user = $this->dataQuery($querString);
 		//session_start();
 
 		if($user['0'] != NULL)
 		{
+			//echo($user['0']['approve']);
 			if($user['0']['approve'] == 1){
 			$_SESSION['userName'] = $user['0']['username'];
 			$_SESSION['name'] = $user['0']['name'];
@@ -61,13 +62,17 @@ class User extends Model
 			$_SESSION['id'] = $user['0']['id'];
 			$_SESSION['login'] = 1;
 
-			return true;
+			return "true";
+			}
+			else
+			{
+				return "Your Request Is Pending";
 			}		
 
 		}
 		else
 		{
-			return false;
+			return "false";
 		}
 	}
 

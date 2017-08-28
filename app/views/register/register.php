@@ -55,7 +55,23 @@
                        
                         
                         <div> <label >Username</label>
-                        <input type="text" id="user" name ="userName" required autofocus/></div>
+                        <input type="text" id="user" name ="userName" required autofocus/>
+                           <CENTER   >
+                           <STRONG>
+                           <div class="red-font">
+                           <?php
+                             if($data != NULL)
+                              {
+
+                               print_r($data);
+                              }
+                            ?> 
+                            </div>
+                            </STRONG>
+                           </CENTER>
+
+                        </div>
+
 
                         <div><label >E-mail</label>
                         <input type="email" id="user" name ="email" required autofocus/></div>
