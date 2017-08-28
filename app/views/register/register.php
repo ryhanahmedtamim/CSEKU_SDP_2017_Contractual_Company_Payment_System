@@ -45,6 +45,12 @@
             <div class="div1">
 
                 <div>Register</div>
+                <div style="text-align: center;"><?php 
+                    if($data == "Your Request Is Pending")
+                    {
+                      print_r($data);
+                    }
+                ?><div>
                 <br>
                 <form  action ="register/register" method="POST">
                         <div>
@@ -60,10 +66,11 @@
                            <STRONG>
                            <div class="red-font">
                            <?php
-                             if($data != NULL)
+                             if($data == "This username is not abilable")
                               {
 
                                print_r($data);
+
                               }
                             ?> 
                             </div>

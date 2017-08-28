@@ -25,6 +25,9 @@ class User extends Model
 		return $user;
 	}
 
+
+
+	//admin
 	public function getAllUserRequest()
 	{
             $querString = "SELECT * FROM `users` WHERE approve='0' AND rolename != 'admin'";
@@ -39,6 +42,14 @@ class User extends Model
 			return $users;
 
 	}
+
+	public function acceptUserRequest($id)
+	{
+		$querString = "UPDATE `users` SET `approve` = '1' WHERE `users`.`id` = $id";
+		return $this->booleanQuery($querString);
+	}
+
+	// admin end
 
 	public function registerUser($Name , $userName, $email, $phoneNumbe, $address,$userType,$password)
 	{

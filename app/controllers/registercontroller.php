@@ -44,7 +44,7 @@ class registercontroller extends Controller
 	  if($result == true)
 	  {
 	  	/* Redirect browser */
-	  	header("Location: http://localhost/ccps/public/"); 
+	  	$this->view('register/register',"Your Request Is Pending");
          exit();
 	  }
 	  else 

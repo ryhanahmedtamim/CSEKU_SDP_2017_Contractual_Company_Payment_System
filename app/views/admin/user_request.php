@@ -52,11 +52,12 @@
                                 <td><?php  echo $user['rolename']; ?></td>
                                 
                                 <td > 
-                                <a class="button-radious-8 button-hover-blue button-send" href="accept_user_request">Accept</a>
+                                <a class="button-radious-8 button-hover-blue button-send" href="accept_user_request/<?php echo $user['id']; ?>">Accept</a>
 
-                                     <button class=" button-radious-8 button-delete button-hovor-delete"" >
+                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="delete_user_request/<?php echo $user['id']; ?>" >
                                         Delete
-                                    </button>  </td>
+                                    </a>  
+                                    </td>
                                     </tr>
                                  
                                   <?php }

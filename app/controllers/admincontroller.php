@@ -6,6 +6,30 @@ session_start();
 class admincontroller extends Controller
 {
 
+	public function authentic()
+	{
+		if(isset($_SESSION['login']))
+		{
+	
+			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'admin')
+			{
+				 return true; 
+			}
+			else
+			{
+
+				$userType = $_SESSION['rolename'];
+	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+         	    exit();	
+			}
+	    }
+	    else
+		{
+			header("Location: http://localhost/ccps/public/"); 
+         	    exit();
+		}
+    }
+	
 	
 	public function index()
 	{
@@ -148,6 +172,26 @@ class admincontroller extends Controller
 			header("Location: http://localhost/ccps/public/"); 
          	    exit();
 		}
+	}
+
+	public function accept_user_request($id)
+	{
+		if($this->authentic() == true)
+		{
+			$User = $this->model("User");
+            $result = $User->acceptUserRequest($id);
+            //echo($id);
+            if($result == true)
+            {
+            	$userType = $_SESSION['rolename'];
+	  		    header("Location: http://localhost/ccps/public/".$userType."/user_request");
+            }
+            else
+            {
+               $userType = $_SESSION['rolename'];
+	  		   header("Location: http://localhost/ccps/public/".$userType."/user_request");
+		   }
+		}	
 	}
 }
 
