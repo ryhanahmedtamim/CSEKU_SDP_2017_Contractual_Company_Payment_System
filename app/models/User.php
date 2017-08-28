@@ -54,6 +54,42 @@ class User extends Model
 		return $this->booleanQuery($querString);
 	}
 
+	public function deleteUser($id)
+	{
+		require_once '../app/models/Contract_details.php';
+		$contract_details = new Contract_details();
+		$result = $contract_details->getUserContract($id);
+
+		if ($result == true)
+		{
+			$querString = "DELETE FROM `users` WHERE `users`.`id` = '$id'";
+		     return $this->booleanQuery($querString);
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public function disableUser($id)
+	{
+		require_once '../app/models/Contract_details.php';
+		 $contract_details = new Contract_details();
+		$result = $contract_details->getUserContract($id);
+
+      //echo($result);
+
+		if ($result == true)
+		{
+			$querString = "UPDATE `users` SET `approve` = '0' WHERE `users`.`id` = $id";
+		   return $this->booleanQuery($querString);  
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	// admin end
 
 	public function registerUser($Name , $userName, $email, $phoneNumbe, $address,$userType,$password)

@@ -214,6 +214,57 @@ class admincontroller extends Controller
 			}
 		}
 	}
+
+		public function delete_user($id)
+		{
+			if ($this->authentic() == true)
+			{
+				$user = $this->model("User");
+
+				$result = $user->deleteUser($id);
+
+				if($result == true)
+				{
+					$userType = $_SESSION['rolename'];
+		  		    header("Location: http://localhost/ccps/public/".$userType."/alluser");
+				}
+				else
+				{
+					echo '<script type="text/javascript">
+					 alert("Sorry You cannot delet this User");
+					</script>)';
+					$userType = $_SESSION['rolename'];
+		  		    //header("refresh:1; http://localhost/ccps/public/".$userType."/alluser");
+
+		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/alluser';\",150);</script>";
+				}
+			}
+		}
+
+		public function disable_user($id)
+		{
+			if ($this->authentic() == true)
+			{
+				$user = $this->model("User");
+
+				$result = $user->disableUser($id);
+
+				if($result == true)
+				{
+					$userType = $_SESSION['rolename'];
+		  		    header("Location: http://localhost/ccps/public/".$userType."/alluser");
+				}
+				else
+				{
+				   
+				   echo '<script type="text/javascript">
+					 alert("Sorry You cannot disable this User");
+					</script>)';
+					$userType = $_SESSION['rolename'];
+		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/alluser';\",150);</script>";
+				}
+			}
+		}
 }
 
 ?>

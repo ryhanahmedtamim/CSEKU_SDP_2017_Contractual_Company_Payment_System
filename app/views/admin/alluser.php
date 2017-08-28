@@ -51,16 +51,15 @@
                                 <td><?php  echo $user['email']; ?></td>
                                 <td><?php  echo $user['rolename']; ?></td>
                                 
-                                <td > <button class=" button-radious-8 button-hovor-disable  button-disable" >
-                                        Disable
-                                    </button>
+                                <td >
+                                    <a class=" button-radious-8 button-hovor-disable  button-disable" href="disable_user/<?php echo $user['id']; ?>">Disable</a>
 
-                                     <button class=" button-radious-8 button-delete button-hovor-delete"" >
-                                        Delete
-                                    </button>  </td>
-                                    <td> <button class=" button-radious-8 button-hover-blue button-send" >
+                                     <a  class=" button-radious-8 button-delete button-hovor-delete" href="delete_user/<?php echo $user['id']; ?>">Delete</a>
+                                        
+                                     </td>
+                                    <td> <a class=" button-radious-8 button-hover-blue button-send" href="user_status/<?php echo $user['id'];?>">
                                         Status
-                                    </button></td>
+                                    </a></td>
                                     </tr>
                                  
                                 <?php 

@@ -134,6 +134,20 @@ class Contract_details extends Model
 
 
 ///admin
+	public function getUserContract($id)
+	{
+		$querString = "SELECT * FROM `contract_details` WHERE `staff_id` = '$id' OR `client_id` = '$id' ";
+		$contracts = $this->dataQuery($querString);
+
+		if($contracts['0'] == NULL)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	public function getContractRequest()
 	{
 		$querString = "SELECT * FROM `contract_details` WHERE active ='0' AND staff_id IS NULL AND payment_for_staff_monthly IS NULL";
