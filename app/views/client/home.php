@@ -19,7 +19,7 @@
 
 
     <div class="col-md-8 col-md-offset-2" style="margin-top:50px;">
-            <h1> Cotract Requests</h1><hr>
+            <h1> Active Cotract</h1><hr>
             <div class="panel panel-default" >
                 <div class="panel-body">                     
                     <table class="table table-bordered">

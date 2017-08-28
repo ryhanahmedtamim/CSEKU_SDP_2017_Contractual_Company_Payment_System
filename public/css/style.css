@@ -1,9 +1,11 @@
              .body-home {
-                background-color: #fff;
+                background-color: #f5f8fa;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;                
-                margin: 1;
+                margin: 1px;
+                font-size: 14px;
+
             }
 
             .content {
@@ -152,6 +154,16 @@ input[type=text], select {
     box-sizing: border-box;
 }
 input[type=email], select {
+    
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=date], select {
     
     width: 50%;
     padding: 12px 20px;
@@ -321,4 +333,5 @@ th {
   border: 1px solid #ddd;
   padding: 7px;
   text-align: center;
+  font-size: 14px;
 }

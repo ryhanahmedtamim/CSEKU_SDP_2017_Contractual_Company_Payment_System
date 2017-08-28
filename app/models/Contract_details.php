@@ -20,6 +20,13 @@ class Contract_details extends Model
 
 	//client
 
+	public function makeContrac($clinetId,$dayPerMonth,$startingDate,$monthlyPayment,$monthLimit)
+	{
+		$querString = "INSERT INTO `contract_details` (`id`, `client_id`, `staff_id`, `start_date`, `monthly_workingday`, `payment_from_client_monthly`, `payment_for_staff_monthly`, `month_limit`, `active`) VALUES (NULL, '$clinetId', NULL, '$startingDate', '$dayPerMonth', '$monthlyPayment', NULL, '$monthLimit', '0')";
+
+		return $this->booleanQuery($querString);
+	}
+
 	public function getClientContract($id)
 	{
 		$querString = "SELECT * FROM `contract_details` WHERE client_id = '$id' AND active = '1' AND staff_id IS NOT NULL AND payment_for_staff_monthly IS NOT NULL";

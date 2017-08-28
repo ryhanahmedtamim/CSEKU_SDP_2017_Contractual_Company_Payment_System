@@ -28,9 +28,9 @@
                                 <th>Name</th>   
                                 <th>Phone Number</th>
                                 <th>E-mail</th> 
-                                <th>Role name</th> 
-                                
-                                <th style="text-align:center">Action</th>
+                                <th>Role name</th>                              
+                                <th>Action</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
 
@@ -58,6 +58,9 @@
                                      <button class=" button-radious-8 button-delete button-hovor-delete"" >
                                         Delete
                                     </button>  </td>
+                                    <td> <button class=" button-radious-8 button-hover-blue button-send" >
+                                        Status
+                                    </button></td>
                                     </tr>
                                  
                                 <?php 
