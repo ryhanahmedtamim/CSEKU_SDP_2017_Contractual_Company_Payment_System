@@ -48,6 +48,11 @@ class User extends Model
 		$querString = "UPDATE `users` SET `approve` = '1' WHERE `users`.`id` = $id";
 		return $this->booleanQuery($querString);
 	}
+	public function deleteUserRequest($id)
+	{
+		$querString = "DELETE FROM `users` WHERE `users`.`id` = '$id'";
+		return $this->booleanQuery($querString);
+	}
 
 	// admin end
 

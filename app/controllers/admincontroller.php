@@ -193,6 +193,27 @@ class admincontroller extends Controller
 		   }
 		}	
 	}
+
+	public function delete_user_request($id)
+	{
+		if ($this->authentic() == true)
+		{
+			$user = $this->model("User");
+
+			$result = $user->deleteUserRequest($id);
+
+			if($result == true)
+			{
+				$userType = $_SESSION['rolename'];
+	  		    header("Location: http://localhost/ccps/public/".$userType."/user_request");
+			}
+			else
+			{
+				$userType = $_SESSION['rolename'];
+	  		    header("Location: http://localhost/ccps/public/".$userType."/user_request");
+			}
+		}
+	}
 }
 
 ?>
