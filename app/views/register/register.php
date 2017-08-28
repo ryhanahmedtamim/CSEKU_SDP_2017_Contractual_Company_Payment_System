@@ -41,16 +41,27 @@
            <li class="li1"><a class = "li-a"  href="">Register</a></li>
         </ul>
             <div class="body-home"> 
+                            <div >
+                           <?php
+                             if($data != NULL)
+                              {
+                                ?>
+                                <div id="snackbar"><?php print_r($data);?></div>
+                                <?php
+                               echo '<script>
+
+                                 var x = document.getElementById("snackbar")
+                                 x.className = "show";
+                                  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                                 </script>';
+                              }
+                            ?> 
+                            </div>
 
             <div class="div1">
 
                 <div>Register</div>
-                <div style="text-align: center;"><?php 
-                    if($data == "Your Request Is Pending")
-                    {
-                      print_r($data);
-                    }
-                ?><div>
+   
                 <br>
                 <form  action ="register/register" method="POST">
                         <div>
@@ -62,20 +73,7 @@
                         
                         <div> <label >Username</label>
                         <input type="text" id="user" name ="userName" required autofocus/>
-                           <CENTER   >
-                           <STRONG>
-                           <div class="red-font">
-                           <?php
-                             if($data == "This username is not abilable")
-                              {
 
-                               print_r($data);
-
-                              }
-                            ?> 
-                            </div>
-                            </STRONG>
-                           </CENTER>
 
                         </div>
 

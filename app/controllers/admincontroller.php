@@ -231,7 +231,7 @@ class admincontroller extends Controller
 				else
 				{
 					echo '<script type="text/javascript">
-					 alert("Sorry You cannot delet this User");
+					 alert("Sorry You cannot delete this User");
 					</script>)';
 					$userType = $_SESSION['rolename'];
 		  		    //header("refresh:1; http://localhost/ccps/public/".$userType."/alluser");
