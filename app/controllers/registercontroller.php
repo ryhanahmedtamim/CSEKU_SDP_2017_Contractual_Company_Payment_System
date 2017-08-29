@@ -6,7 +6,7 @@
 class registercontroller extends Controller
 {
 	
-	public function index()
+	public function index($data = [])
 	{
 		if(isset($_SESSION['login']))
 		{
@@ -20,7 +20,7 @@ class registercontroller extends Controller
 		}
 		else
 		{
-			     $this->view('register/register');
+			     $this->view('register/register',$data);
          	    exit();
 		}
 	}
@@ -44,13 +44,16 @@ class registercontroller extends Controller
 	  if($result == true)
 	  {
 	  	/* Redirect browser */
-	  	$this->view('register/register',"Your Request Is Pending");
-         exit();
+	  	$data = "Your Request Is Pending";
+	  	header("Location: http://localhost/ccps/public/register/".$data);
+	  	exit(); 
 	  }
 	  else 
 	  {
 
-	  	$this->view('register/register',"This username is not abilable");
+	  	$data = "This username is not abilable";
+	  	header("Location: http://localhost/ccps/public/register/".$data);
+	  	exit();
 	  }
 
 

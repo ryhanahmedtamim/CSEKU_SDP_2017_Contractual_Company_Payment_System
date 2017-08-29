@@ -54,6 +54,13 @@ class User extends Model
 		return $this->booleanQuery($querString);
 	}
 
+	public function getAllStaff()
+	{
+		   $querString = "SELECT * FROM `users` WHERE approve='1' AND rolename = 'Staff'";
+			$users = $this->dataQuery($querString);
+			return $users;
+	}
+
 	public function deleteUser($id)
 	{
 		require_once '../app/models/Contract_details.php';

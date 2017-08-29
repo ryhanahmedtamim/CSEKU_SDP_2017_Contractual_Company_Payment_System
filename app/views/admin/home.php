@@ -56,13 +56,10 @@
                             ?>   
                             </td>
 
-                                <td > <button class=" button-radious-8 button-send  button-hover-blue " >
-                                        Send Request
-                                    </button>
-
-                                     <button class=" button-radious-8 button-delete button-hovor-delete"" >
-                                        Delete
-                                    </button> 
+                                <td >
+                                <a class=" button-radious-8 button-send  button-hover-blue" href="send_contract_request/<?php echo $contract['id']; ?>">Send Request</a> 
+                                
+                                <a class=" button-radious-8 button-delete button-hovor-delete" href="delete_contract_request/<?php echo($contract['id']); ?>"> Delete </a>
 
                                  </td>
                                  </tr>
@@ -83,6 +80,39 @@
         
         </div>
     </div>
+    <div > 
+                           <?php
+
+                            //print_r($id);
+                             if($id == "true" || $id=="false" || $id == "send")
+                              {
+                                ?>
+                                <div id="snackbar"><?php 
+                                if($id == "true")
+                                  {
+                                    echo "Successfully Deleted";
+                                  }
+                                  elseif($id == "false")
+                                    {
+                                      echo "Sorry You Cannot delete";
+                                      //print_r($data);
+                                    }
+                                    else
+                                    {
+                                        echo "Successfully Send";
+                                    }?>
+                                  
+                                </div>
+                                <?php
+                               echo '<script>
+
+                                 var x = document.getElementById("snackbar")
+                                 x.className = "show";
+                                  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
+                                 </script>';
+                              }
+                            ?> 
+                            </div>
 
 
     </body>

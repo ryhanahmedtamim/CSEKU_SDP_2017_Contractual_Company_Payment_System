@@ -16,18 +16,30 @@
         </ul>
            <div class="body-home">
 
-                <div >
+                <div > 
                            <?php
-                             if($data != NULL)
+                            //print_r($data);
+                             if($data == "Thisusernameorpasswordisnotmatch" || $data=="YourRequestIsPending")
                               {
                                 ?>
-                                <div id="snackbar"><?php print_r($data);?></div>
+                                <div id="snackbar"><?php 
+                                if($data == "Thisusernameorpasswordisnotmatch")
+                                  {
+                                    echo "Username or password is not match";
+                                  }
+                                  elseif($data == "YourRequestIsPending")
+                                    {
+                                      echo "You request is pending";
+                                      //print_r($data);
+                                    }?>
+                                  
+                                </div>
                                 <?php
                                echo '<script>
 
                                  var x = document.getElementById("snackbar")
                                  x.className = "show";
-                                  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+                                  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 6000);
                                  </script>';
                               }
                             ?> 
@@ -43,7 +55,7 @@
                          <label for="user">Username</label>
                         <input type="text" id="user" name ="userName" required autofocus/>
 
-                        
+                     
                    
                       
                         </div>

@@ -134,6 +134,13 @@ class Contract_details extends Model
 
 
 ///admin
+
+	public function deleteContractRequest($id)
+	{
+		$querString = "DELETE FROM `contract_details` WHERE `contract_details`.`id` = '$id'";
+		return $this->booleanQuery($querString);
+	}
+
 	public function getUserContract($id)
 	{
 		$querString = "SELECT * FROM `contract_details` WHERE `staff_id` = '$id' OR `client_id` = '$id' ";
@@ -148,6 +155,18 @@ class Contract_details extends Model
 			return false;
 		}
 	}
+	public function sendContractRequest($contractsId,$monthlyPaymentForStaff,$Saffid)
+	{
+		$querString = "UPDATE `contract_details` SET `staff_id` = '$Saffid' , `payment_for_staff_monthly` = '$monthlyPaymentForStaff' WHERE `contract_details`.`id` = $contractsId";
+		return $this->booleanQuery($querString);
+	}
+
+	public function deleteSendRequest($id)
+	{
+		$querString = "UPDATE `contract_details` SET `staff_id` = NULL , `payment_for_staff_monthly` = NULL WHERE `contract_details`.`id` = $id";
+		return $this->booleanQuery($querString);
+	}
+
 	public function getContractRequest()
 	{
 		$querString = "SELECT * FROM `contract_details` WHERE active ='0' AND staff_id IS NULL AND payment_for_staff_monthly IS NULL";

@@ -65,9 +65,8 @@
                             ?>   
                             </td>
                             <td>
-                                     <button class=" button-radious-8 button-delete button-hovor-delete"" >
-                                        Delete
-                                    </button> 
+                            <a class=" button-radious-8 button-delete button-hovor-delete" href="delete_send_request/<?php echo $contract['id']; ?>"> Delete</a>
+                                     
 
                                  </td>
                             </tr>

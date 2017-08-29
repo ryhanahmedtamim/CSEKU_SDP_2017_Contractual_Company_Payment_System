@@ -31,7 +31,7 @@ class admincontroller extends Controller
     }
 	
 	
-	public function index()
+	public function index($data = [])
 	{
 	
 
@@ -42,8 +42,8 @@ class admincontroller extends Controller
 			{
 				 $Contract_details = $this->model("Contract_details");
 				 $contracts = $Contract_details->getContractRequest();
-				 //print_r($contracts);
-                 $this->view('admin/home',$contracts);
+				 //print_r($data);
+                 $this->view('admin/home',$contracts,$data);
  
 			}
 			else{
@@ -253,6 +253,7 @@ class admincontroller extends Controller
 				{
 					$userType = $_SESSION['rolename'];
 		  		    header("Location: http://localhost/ccps/public/".$userType."/alluser");
+		  		    exit();
 				}
 				else
 				{
@@ -262,6 +263,99 @@ class admincontroller extends Controller
 					</script>)';
 					$userType = $_SESSION['rolename'];
 		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/alluser';\",150);</script>";
+				}
+			}
+		}
+
+
+		public function delete_contract_request($id)
+		{
+			if($this->authentic() == true)
+			{
+				$Contract_details = $this->model("Contract_details");
+				$result = $Contract_details->deleteContractRequest($id);
+
+				if($result == true)
+				{
+					$userType = $_SESSION['rolename'];
+		  		    header("Location: http://localhost/ccps/public/".$userType."/true");
+		  		    exit();
+				}
+				else
+				{
+					echo '<script type="text/javascript">
+					 alert("Sorry You cannot disable this User");
+					</script>)';
+					$userType = $_SESSION['rolename'];
+		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/false';\",150);</script>";
+				} 
+			}
+		}
+
+
+		public function send_contract_request($id)
+		{
+			if($this->authentic() == true)
+			{
+				$user = $this->model("User");
+				$users = $user->getAllStaff();
+
+				$this->view('admin/send_contract',$users,$id);
+			}
+		}
+
+
+		public function send_contract_request_to_staff()
+		{
+			if($this->authentic() == true)
+			{
+				$contractsId = $_POST['id'];
+				$monthlyPaymentForStaff = $_POST['monthlyPaymentForStaff'];
+				$Saffid = $_POST['Saff'];
+
+
+
+				$Contract_details = $this->model("Contract_details");
+				$result = $Contract_details->sendContractRequest($contractsId,$monthlyPaymentForStaff,$Saffid);
+
+				if($result == true)
+				{
+					$userType = $_SESSION['rolename'];
+		  		    header("Location: http://localhost/ccps/public/".$userType."/send");
+		  		    exit();
+				}
+				else
+				{
+					echo '<script type="text/javascript">
+					 alert("Sorry You cannot disable this User");
+					</script>)';
+					$userType = $_SESSION['rolename'];
+		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/sorry';\",150);</script>";
+				}
+			}
+		}
+
+		public function delete_send_request($id)
+		{
+
+			if($this->authentic() == true)
+			{
+				$Contract_details = $this->model("Contract_details");
+				$result = $Contract_details->deleteSendRequest($id);
+
+				if($result == true)
+				{
+					$userType = $_SESSION['rolename'];
+		  		    header("Location: http://localhost/ccps/public/".$userType."/pending_contract");
+		  		    exit();
+				}
+				else
+				{
+					echo '<script type="text/javascript">
+					 alert("Sorry There is something wrong");
+					</script>)';
+					$userType = $_SESSION['rolename'];
+		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/pending_contract';\",150);</script>";
 				}
 			}
 		}

@@ -14,10 +14,12 @@ class Controller
 
 	 }
 
-	 public function view($view, $data = [])
+	 public function view($view, $data = [], $id = [])
 	 {
 	 	require_once '../app/views/'.$view.'.php';
 	 }
+
+	 //public function view($view,$data)
 	
 }
 

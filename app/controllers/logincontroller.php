@@ -6,7 +6,7 @@ session_start();
 class logincontroller extends Controller
 {
 	
-	public function index()
+	public function index($data=[])
 	{
 		if(isset($_SESSION['login']))
 		{
@@ -20,7 +20,7 @@ class logincontroller extends Controller
 		}
 		else
 		{
-			     $this->view('login/login');
+			     $this->view('login/login',$data);
          	    exit();
 		}
 
@@ -61,12 +61,13 @@ class logincontroller extends Controller
 	  }
 	  else if($result == "false") 
 	  {
-
-	  	$this->view('login/login',"This username or password is not match");
+	  	$data = "This username or password is not match";
+	  	header("Location: http://localhost/ccps/public/login/".$data); 
+	  	//$this->view('login/login',"This username or password is not match");
 	  }
 	  else
 	  {
-	  	$this->view('login/login',$result);
+	  	header("Location: http://localhost/ccps/public/login/".$result);
 	  }
 
 	}

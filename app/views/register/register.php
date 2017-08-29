@@ -43,10 +43,19 @@
             <div class="body-home"> 
                             <div >
                            <?php
-                             if($data != NULL)
+
+                             if($data == "YourRequestIsPending" || $data == "Thisusernameisnotabilable")
                               {
                                 ?>
-                                <div id="snackbar"><?php print_r($data);?></div>
+                                <div id="snackbar"><?php
+                                if ($data =="YourRequestIsPending") {
+                                  echo "Your Request Is Pending";
+                                }
+                                else
+                                {
+                                  echo "This username is not abilable";
+                                }
+                                ?></div>
                                 <?php
                                echo '<script>
 
@@ -60,9 +69,11 @@
 
             <div class="div1">
 
-                <div>Register</div>
+                <div>Register
+                </div>
    
                 <br>
+                
                 <form  action ="register/register" method="POST">
                         <div>
 
