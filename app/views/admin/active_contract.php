@@ -69,7 +69,20 @@
 
                                  <td>
                                      <a class=" button-radious-8 button-send  button-hover-blue" href="">Send</a>
+
+                                     <?php if($contract['receive'] == 1) 
+                                     {
+                                        ?>
                                      <a class=" button-radious-8 button-send  button-hover-blue" href="">Receive</a>
+                                     <?php }
+                                     else
+                                        {
+                                        ?>
+                                        <a class=" button-radious-8 button-send   disabled-button" href="">Receive</a>
+                                        <?php
+                                       }
+                                        ?>
+
                                     
                                  </td>
 

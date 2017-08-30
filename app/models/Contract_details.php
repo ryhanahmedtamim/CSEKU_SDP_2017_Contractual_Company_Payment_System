@@ -250,9 +250,11 @@ class Contract_details extends Model
 		$querString = "SELECT * FROM `contract_details` WHERE active ='1' AND staff_id IS NOT NULL AND payment_for_staff_monthly IS NOT NULL";
 
             require_once '../app/models/User.php';
+            require_once '../app/models/Client_payments.php';
 			$contracts = $this->dataQuery($querString);
 
 			$users = new User();
+			$Client_payments = new Client_payments();
 
 			$allContract = [];
 
@@ -269,6 +271,17 @@ class Contract_details extends Model
 			    $user = $users->find($staffId);
 				$userName = $user['name'];
 				$contract['staff_name'] = $userName;
+				$contractId = $contract['id'];
+				$Clientpayments = $Client_payments->findByContract($contractId);
+
+				if($Clientpayments['0'] == NULL)
+				{
+					$contract['receive'] = 0;
+				}
+				else
+				{
+					$contract['receive'] = 1;
+				}
 
 				$allContract[] = $contract;
 

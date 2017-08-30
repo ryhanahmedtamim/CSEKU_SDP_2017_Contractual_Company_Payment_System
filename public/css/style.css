@@ -20,7 +20,7 @@
 .red-font{
   color: red;
 }
-.disabled {
+.disabled-button {
     opacity: .4;
     cursor: not-allowed;
 }

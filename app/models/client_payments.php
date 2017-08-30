@@ -14,6 +14,12 @@ class Client_payments extends Model
 
 		return $this->booleanQuery($querString);
 	}
+
+	public function findByContract($contractId)
+	{
+		$querString = "SELECT * FROM `client_payments` WHERE `client_payments`.`contract_id` = '$contractId' ";
+		return $this->dataQuery($querString);
+	}
 	
 }
 ?>
