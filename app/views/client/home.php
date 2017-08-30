@@ -53,13 +53,13 @@
                             ?>   
                             </td>
                                                            
-                                     <td > <button class=" button-radious-8 button-send  button-hover-blue " >
+                                     <td > <a class="button-radious-8 button-send  button-hover-blue"  href="send_payment_view/<?php echo $contract['id']; ?>">
                                         Send Payment
-                                    </button>
+                                    </a>
 
-                                     <button class=" button-radious-8 button-delete button-hovor-delete"" >
+                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="" >
                                         Delete
-                                    </button> 
+                                    </a> 
 
                                  </td>
                             </tr>

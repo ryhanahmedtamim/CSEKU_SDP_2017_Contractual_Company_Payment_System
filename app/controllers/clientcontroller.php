@@ -99,6 +99,52 @@ class clientcontroller extends Controller
 	    }
 		
 	}
+
+
+	public function send_payment()
+	{
+		if($this->authentic() == true)
+		{
+			$contractId = $_POST['contractId'];
+			$paymentSerial = $_POST['paymentSerial'];
+			$amount = $_POST['amount'];
+			$paymentDate = $_POST['paymentDate'];
+			$paymentDate = str_replace('/', '-', $paymentDate);
+			$paymentDate = strtotime($paymentDate);
+            $paymentDate=date('Y-m-d', $paymentDate);
+
+            $Client_payments = $this->model("Client_payments");
+
+            $result = $Client_payments->sendPaymentByClient($contractId,$paymentSerial,$amount,$paymentDate);
+
+            if($result == true)
+				{
+					$userType = $_SESSION['rolename'];
+		  		    header("Location: http://localhost/ccps/public/".$userType."/home");
+		  		    exit();
+				}
+				else
+				{
+				   
+				   echo '<script type="text/javascript">
+					 alert("Sorry there is some Problem");
+					</script>)';
+					$userType = $_SESSION['rolename'];
+		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/home';\",150);</script>";
+				}
+
+		}
+	}
+
+	public function send_payment_view($id)
+	{
+		if($this->authentic() == true)
+		{
+			//echo "string1";
+
+			$this->view('client/send_payment',$id);
+		}
+	}
 }
 
 ?>
