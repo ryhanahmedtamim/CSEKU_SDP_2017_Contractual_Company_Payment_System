@@ -101,7 +101,7 @@ class admincontroller extends Controller
 				 $Contract_details = $this->model("Contract_details");
 				 $contracts = $Contract_details->getActiveContract();
 				 //print_r($contracts);
-                 $this->view('admin/pending_contract',$contracts);
+                 $this->view('admin/active_contract',$contracts);
  
 			}
 			else{

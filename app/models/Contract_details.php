@@ -95,12 +95,26 @@ class Contract_details extends Model
 			return $allContract;
 	}
 ///staff
+
+	public function acceptContracRequest($contractsId)
+	{
+		$querString = "UPDATE `contract_details` SET `active` = '1' WHERE `contract_details`.`id` = $contractsId";
+		return $this->booleanQuery($querString);
+	}
+
+	public function deleteContracRequest($id)
+	{
+		$querString = "UPDATE `contract_details` SET `staff_id` = NULL , `payment_for_staff_monthly` = NULL WHERE `contract_details`.`id` = $id";
+		return $this->booleanQuery($querString);
+	}
+
+
 	public function getStaffContractRequest($id)
 	{
 		
 
 		//echo ($myId);
-		$querString = "SELECT * FROM `contract_details` WHERE staff_id = '$id' AND active ='0' AND staff_id IS NOT NULL AND payment_for_staff_monthly IS NOT NULL";
+		$querString = "SELECT * FROM `contract_details` WHERE staff_id = '$id' AND active ='0' AND payment_for_staff_monthly IS NOT NULL";
 
             require_once '../app/models/User.php';
 			$contracts = $this->dataQuery($querString);

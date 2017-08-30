@@ -19,7 +19,7 @@
 
 
     <div class="col-md-8 col-md-offset-2" style="margin-top:50px;">
-            <h1> Cotract Requests</h1><hr>
+            <h1>Active Cotract</h1><hr>
             <div class="panel panel-default" >
                 <div class="panel-body">                     
                     <table class="table table-bordered">
@@ -27,10 +27,11 @@
                             <tr>
                                 <th>Client Name</th>   
                                 <th>Staff Name</th> 
-                                <th>Start Date</th>
                                 <th>Staff Payment</th> 
                                 <th>Client Pay</th> 
                                 <th>Action</th>
+                                <th>Payment</th>
+                                <th>History</th>
                             </tr>
                         </thead>
                         
@@ -46,9 +47,9 @@
                             
                                 <td><?php echo $contract['client_name'] ; ?></td>
                                 <td><?php echo $contract['staff_name'] ; ?></td>
-                                <td><?php echo $contract['start_date'] ; ?></td>
+                                
 
-                                <td>
+                            <td>
                             <?php 
                             echo $contract['payment_for_staff_monthly'] ; 
                             ?>   
@@ -59,11 +60,21 @@
                             echo $contract['payment_from_client_monthly'] ; 
                             ?>   
                             </td>
-                            <td>
-                                     <button class=" button-radious-8 button-delete button-hovor-delete"" >
+                                <td>
+                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="" >
                                         Delete
-                                    </button> 
+                                    </a> 
 
+                                 </td>
+
+                                 <td>
+                                     <a class=" button-radious-8 button-send  button-hover-blue" href="">Send</a>
+                                     <a class=" button-radious-8 button-send  button-hover-blue" href="">Receive</a>
+                                    
+                                 </td>
+
+                                 <td>
+                                     <a class=" button-radious-8 button-send  button-hover-blue" href="">History</a>
                                  </td>
                             </tr>
                             <?php

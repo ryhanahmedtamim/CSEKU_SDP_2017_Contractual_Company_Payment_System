@@ -56,9 +56,9 @@
                                         Get Payment
                                     </button>
 
-                                     <button class=" button-radious-8 button-delete button-hovor-delete"" >
+                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="" >
                                         Delete
-                                    </button> 
+                                    </a> 
 
                                  </td>
                             </tr>

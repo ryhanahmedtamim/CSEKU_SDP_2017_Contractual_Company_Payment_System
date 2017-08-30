@@ -52,13 +52,13 @@
                             ?>   
                             </td>
                                                            
-                                     <td > <button class=" button-radious-8 button-send  button-hover-blue " >
+                                     <td > <a class=" button-radious-8 button-send  button-hover-blue " href="accept_contrac_request/<?php echo $contract['id']; ?>" >
                                         Accept
-                                    </button>
+                                    </a>
 
-                                     <button class=" button-radious-8 button-delete button-hovor-delete"" >
+                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="delete_contrac_request/<?php echo $contract['id']; ?>" >
                                         Delete
-                                    </button> 
+                                    </a> 
 
                                  </td>
                             </tr>

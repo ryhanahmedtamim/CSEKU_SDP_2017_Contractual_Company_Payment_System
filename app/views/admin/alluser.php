@@ -57,7 +57,7 @@
                                      <a  class=" button-radious-8 button-delete button-hovor-delete" href="delete_user/<?php echo $user['id']; ?>">Delete</a>
                                         
                                      </td>
-                                    <td> <a class=" button-radious-8 button-hover-blue button-send" href="user_status/<?php echo $user['id'];?>">
+                                    <td> <a class=" button-radious-8 button-hover-blue button-send" href="user_status_<?php echo $user['rolename']; ?>/<?php echo $user['id'];?>">
                                         Status
                                     </a></td>
                                     </tr>

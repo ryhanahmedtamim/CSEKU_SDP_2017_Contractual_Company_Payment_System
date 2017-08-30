@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,18 @@
 
 
                
-               <li class="li2"><a class = "li-a"  href="/ccps/public/login/logout">Logout</a></li>
+               <li class="li2">
+               
+               	<option>
+               		<?php
+               		echo $_SESSION['userName'];
+               		?>
+               	</option>
+               	<option>
+               		<li class="li2"><a class = "li-a"  href="/ccps/public/login/logout">Logout</a></li>
+
+               	</option>
+               </li>
 
             </ul>
 </body>
