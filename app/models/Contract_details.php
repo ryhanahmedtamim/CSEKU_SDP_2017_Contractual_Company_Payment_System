@@ -272,7 +272,7 @@ class Contract_details extends Model
 				$userName = $user['name'];
 				$contract['staff_name'] = $userName;
 				$contractId = $contract['id'];
-				$Clientpayments = $Client_payments->findByContract($contractId);
+				$Clientpayments = $Client_payments->findUnapprovrByContract($contractId);
 
 				if($Clientpayments['0'] == NULL)
 				{

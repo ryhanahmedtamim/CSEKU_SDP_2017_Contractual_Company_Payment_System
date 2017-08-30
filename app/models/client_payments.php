@@ -20,6 +20,12 @@ class Client_payments extends Model
 		$querString = "SELECT * FROM `client_payments` WHERE `client_payments`.`contract_id` = '$contractId' ";
 		return $this->dataQuery($querString);
 	}
+
+	public function findUnapprovrByContract($contractId)
+	{
+		$querString = "SELECT * FROM `client_payments` WHERE `client_payments`.`contract_id` = '$contractId' AND `client_payments`.`approved_by_manager` = '0' ";
+		return $this->dataQuery($querString);	
+	}
 	
 }
 ?>
