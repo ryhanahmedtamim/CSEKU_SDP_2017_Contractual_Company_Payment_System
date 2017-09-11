@@ -359,6 +359,45 @@ class admincontroller extends Controller
 				}
 			}
 		}
+
+
+		public function receive_payment($id)
+		{
+			if($this->authentic() == true)
+			{
+				$Client_payments = $this->model("Client_payments");
+				$Client_payment = $Client_payments->findByContract($id);
+				$this->view('admin/receive_payment',$Client_payment);
+			}
+		}
+
+
+	    public function	receive_payment_by_admin($paymentId, $ContracId)
+	    {
+	    	if($this->authentic() == true)
+	    	{
+	    		$Client_payments = $this->model("Client_payments");
+
+
+	    		$result = $Client_payments->receivedPayment($paymentId);
+
+				if($result == true)
+				{
+					$userType = $_SESSION['rolename'];
+		  		    header("Location: http://localhost/ccps/public/".$userType."/receive_payment/".$ContracId);
+		  		    exit();
+				}
+				else
+				{
+					echo '<script type="text/javascript">
+					 alert("Sorry There is something wrong");
+					</script>)';
+					$userType = $_SESSION['rolename'];
+		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/active_contract';\",150);</script>";
+				}
+				
+			}
+	    }
 }
 
 ?>

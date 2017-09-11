@@ -17,7 +17,7 @@
 
                 <div>Send Contract</div>
                 <br>
-                <form  action ="http://localhost/ccps/public/admin/send_contract_request_to_staff" method="POST">
+                <form  action ="/ccps/public/admin/send_contract_request_to_staff" method="POST">
                         <div>
 
                         

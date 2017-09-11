@@ -69,9 +69,9 @@
 
             <div class="div1">
 
-                <div>Register
+                <div style="margin-left: 30px; font-size: 20px;">Register
                 </div>
-   
+                <hr>
                 <br>
                 
                 <form  action ="register/register" method="POST">
@@ -121,7 +121,7 @@
                         
                    
                     
-                         <button type="submit" class="button-submit button-radious-8 button-hover-blue" onclick = "validatePassword()" >
+                         <button type="submit" class="button-register button-radious-8 button-hover-blue" onclick = "validatePassword()" >
                                         Register
                                     </button>
                     

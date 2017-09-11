@@ -47,7 +47,8 @@
 
             <div class="div1">
 
-                <div style="margin-left: 30px;">Login</div>
+                <div style="margin-left: 30px;font-size: 20px;">Login</div>
+                <hr>
                 <br>
                 <form action ="login/login" method="POST">
                         
