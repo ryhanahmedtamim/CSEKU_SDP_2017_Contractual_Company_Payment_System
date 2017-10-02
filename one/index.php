@@ -4,7 +4,7 @@ session_start();
 require_once '../app/init.php';
 //require_once '../app/config/database.php';
 
-$url = "one";
+$url = "two";
 
 if(!(isset($_SESSION['database'])))
 {

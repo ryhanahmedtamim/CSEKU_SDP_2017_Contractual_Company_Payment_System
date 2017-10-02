@@ -1,7 +1,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-    <title>NR Company</title>
+    <title><?php echo $_SESSION['company']; ?></title>
     </head>
     <body class="body-home" >                  
                 

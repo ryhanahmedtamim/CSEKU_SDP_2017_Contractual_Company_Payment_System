@@ -3,7 +3,7 @@
     <html>
         <head>  
 
-       
+       <?php echo $_SESSION['company']; ?>
         </head>
 
         <body class="body-home">
