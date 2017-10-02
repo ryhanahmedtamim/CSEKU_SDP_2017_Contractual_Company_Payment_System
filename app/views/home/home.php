@@ -24,7 +24,10 @@
                <div style="padding-top: 280px">
                 <div class="content">
                     <div class="title">
-                        NR Company
+                        <?php
+                        echo $_SESSION['company'];
+
+                        ?>
                     </div>
                 </div>
             </div>

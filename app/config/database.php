@@ -1,12 +1,10 @@
 <?php
    
 
-   function getDatabase($databseName)
+   function getDatabase($user,$password,$databseName)
    {
       $host = "localhost";
-      $user = "root";
-      $passwor = "";
-      $connection = mysqli_connect($host,$user,$passwor,$databseName); 
+      $connection = mysqli_connect($host,$user,$password,$databseName); 
 
        if ($connection->connect_error)
         {
