@@ -3,12 +3,12 @@ session_start();
 class clientcontroller extends Controller
 {
 
-	public function authentic()
+	public function authentic($url)
 	{
 		if(isset($_SESSION['login']))
 		{
 	
-			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'Client')
+			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'client')
 			{
 				 return true; 
 			}
@@ -16,29 +16,29 @@ class clientcontroller extends Controller
 			{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 	    }
 	    else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
          	    exit();
 		}
     }
 	
-	public function index()
+	public function index($database,$url)
 	{
 
 
 		if(isset($_SESSION['login']))
 		{
 	
-			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'Client')
+			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'client')
 			{
 				 $Contract_details = $this->model("Contract_details");
 				 $id = $_SESSION['id'];
-			     $contracts = $Contract_details->getClientContract($id);
+			     $contracts = $Contract_details->getClientContract($database,$id);
 			     //print_r($contracts);
                  $this->view('client/home',$contracts);
  
@@ -47,30 +47,31 @@ class clientcontroller extends Controller
 			{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home");
+	  		    echo "sts";
          	    exit();	
 			}
 					
 		}
 		else
 		{
-			header("Location: http://localhost/ccps/public/"); 
-         	    exit();
+			header("Location: http://".$url); 
+         	exit();
 		}
 	}
 
 
-	public function make_contrac()
+	public function make_contrac($database,$url)
 	{
-		if($this->authentic() == true)
+		if($this->authentic($url) == true)
 		{
 		    $this->view('client/make_contrac');
 	    }
 	}
 
-	public function submit_contract()
+	public function submit_contract($database,$url)
 	{
-		if($this->authentic() == true)
+		if($this->authentic($url) == true)
 		{
 			//echo("ddd");
 			if(isset($_POST['dayPerMonth'],$_POST['startingDate'],$_POST['monthlyPayment'],$_POST['monthLimit']))
@@ -87,11 +88,11 @@ class clientcontroller extends Controller
 
 				$contract = $this->model('Contract_details');
 
-				$result = $contract->makeContrac($clinetId,$dayPerMonth,$startingDate,$monthlyPayment,$monthLimit);
+				$result = $contract->makeContrac($database,$clinetId,$dayPerMonth,$startingDate,$monthlyPayment,$monthLimit);
 				if($result == true)
 				{
 				$$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();
 					//echo ($result);
 				}
@@ -101,9 +102,9 @@ class clientcontroller extends Controller
 	}
 
 
-	public function send_payment()
+	public function send_payment($database,$url)
 	{
-		if($this->authentic() == true)
+		if($this->authentic($url) == true)
 		{
 			$contractId = $_POST['contractId'];
 			$paymentSerial = $_POST['paymentSerial'];
@@ -115,12 +116,11 @@ class clientcontroller extends Controller
 
             $Client_payments = $this->model("Client_payments");
 
-            $result = $Client_payments->sendPaymentByClient($contractId,$paymentSerial,$amount,$paymentDate);
-
+            $result = $Client_payments->sendPaymentByClient($database,$contractId,$paymentSerial,$amount,$paymentDate);
             if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/home");
+		  		    header("Location: http://".$url."/?url=".$userType."/home");
 		  		    exit();
 				}
 				else
@@ -128,17 +128,18 @@ class clientcontroller extends Controller
 				   
 				   echo '<script type="text/javascript">
 					 alert("Sorry there is some Problem");
-					</script>)';
+					</script>';
 					$userType = $_SESSION['rolename'];
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/home';\",150);</script>";
+					//print_r($result);
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/home';\",150);</script>";
 				}
 
 		}
 	}
 
-	public function send_payment_view($id)
+	public function send_payment_view($database,$url,$id)
 	{
-		if($this->authentic() == true)
+		if($this->authentic($url) == true)
 		{
 			//echo "string1";
 

@@ -7,7 +7,7 @@ session_start();
 class homecontroller extends Controller
 {
 	
-	public function index()
+	public function index($database,$url)
 	{
 		if(isset($_SESSION['login']))
 		{
@@ -15,7 +15,7 @@ class homecontroller extends Controller
 			if($_SESSION['login'] == '1')
 			{
 				 $userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
 			}
 					
 		}

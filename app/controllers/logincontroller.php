@@ -6,7 +6,7 @@ session_start();
 class logincontroller extends Controller
 {
 	
-	public function index($data=[])
+	public function index($databaseName,$url,$data=[])
 	{
 		if(isset($_SESSION['login']))
 		{
@@ -14,30 +14,30 @@ class logincontroller extends Controller
 			if($_SESSION['login'] == '1')
 			{
 				 $userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
 			}
 					
 		}
 		else
 		{
 			     $this->view('login/login',$data);
-         	    exit();
+         	    //exit();
 		}
 
 	}
 
-	public function logout()
+	public function logout($databaseName = [],$url)
 	{
 		//session_start();
 
 		if(isset($_SESSION['login']))
 		{
 			session_destroy();
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
             exit();
 		}
 	}
-	public function login()
+	public function login($databaseName,$url)
 	{
 		 $userName = $_POST['userName'];
 		 $password = $_POST['password'];
@@ -45,7 +45,7 @@ class logincontroller extends Controller
 
 	  $User = $this->model("User");
 
-	  $result = $User->loginUser($userName,$password);
+	  $result = $User->loginUser($databaseName,$userName,$password);
 
 
 	  if($result == "true")
@@ -56,18 +56,18 @@ class logincontroller extends Controller
 	  	//header("Location: http://google.com"); 
 	  	//echo "<br/> Location: http://localhost/ccps/public/".$userType."/home";
 
-	  	header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  	header("Location: http://".$url."/?url=".$userType."/home"); 
         
 	  }
 	  else if($result == "false") 
 	  {
 	  	$data = "This username or password is not match";
-	  	header("Location: http://localhost/ccps/public/login/".$data); 
+	  	header("Location: http://". $url ."/?url=login/".$data); 
 	  	//$this->view('login/login',"This username or password is not match");
 	  }
 	  else
 	  {
-	  	header("Location: http://localhost/ccps/public/login/".$result);
+	  	header("Location: http://". $url ."/?url=login/".$result); 
 	  }
 
 	}

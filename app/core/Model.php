@@ -4,11 +4,12 @@
   {
 
   
-  public  function singleDataQuery($querString)
+  public  function singleDataQuery($databaseName,$querString)
    {
    	
    	//echo $querString;
-   	require '../app/config/database.php';
+   	require_once '../app/config/database.php';
+   	$connection = getDatabase($databaseName);
 
    	//echo($connection);
       $result = mysqli_query($connection,$querString);
@@ -29,11 +30,12 @@
 	}
    
 
-   public function dataQuery($querString)
+   public function dataQuery($databaseName,$querString)
    {
    	
    	//echo $querString;
-   	require '../app/config/database.php';
+   	require_once '../app/config/database.php';
+   	$connection = getDatabase($databaseName);
       $result = mysqli_query($connection,$querString);
 
 		if (mysqli_num_rows($result)>0) 
@@ -53,9 +55,11 @@
       return $data;
 	}
 
-	function booleanQuery($queryString)
+	function booleanQuery($databaseName,$queryString)
 	{
-		require '../app/config/database.php';
+		require_once '../app/config/database.php';
+
+		$connection = getDatabase($databaseName);
 
 		if (mysqli_query($connection, $queryString)) 
 		{

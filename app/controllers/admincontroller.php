@@ -6,7 +6,7 @@ session_start();
 class admincontroller extends Controller
 {
 
-	public function authentic()
+	public function authentic($url)
 	{
 		if(isset($_SESSION['login']))
 		{
@@ -19,19 +19,19 @@ class admincontroller extends Controller
 			{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 	    }
 	    else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
          	    exit();
 		}
     }
 	
 	
-	public function index($data = [])
+	public function index($database,$url,$data = [])
 	{
 	
 
@@ -41,7 +41,7 @@ class admincontroller extends Controller
 			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'admin')
 			{
 				 $Contract_details = $this->model("Contract_details");
-				 $contracts = $Contract_details->getContractRequest();
+				 $contracts = $Contract_details->getContractRequest($database);
 				 //print_r($data);
                  $this->view('admin/home',$contracts,$data);
  
@@ -49,20 +49,20 @@ class admincontroller extends Controller
 			else{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://". $url ."/?url=".$userType."/home"); 
          	    exit();	
 			}
 					
 		}
 		else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
          	    exit();
 		}
 		
 	}
 
-	public function pending_contract()
+	public function pending_contract($database,$url)
 	{
 
 		if(isset($_SESSION['login']))
@@ -71,7 +71,7 @@ class admincontroller extends Controller
 			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'admin')
 			{
 				 $Contract_details = $this->model("Contract_details");
-				 $contracts = $Contract_details->getPendingContract();
+				 $contracts = $Contract_details->getPendingContract($database);
 				 //print_r($contracts);
                  $this->view('admin/pending_contract',$contracts);
  
@@ -79,19 +79,19 @@ class admincontroller extends Controller
 			else{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 					
 		}
 		else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
          	    exit();
 		}
 	}
 
-	public function active_contract()
+	public function active_contract($database,$url)
 	{
 				if(isset($_SESSION['login']))
 		{
@@ -99,7 +99,7 @@ class admincontroller extends Controller
 			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'admin')
 			{
 				 $Contract_details = $this->model("Contract_details");
-				 $contracts = $Contract_details->getActiveContract();
+				 $contracts = $Contract_details->getActiveContract($database);
 				 //print_r($contracts);
                  $this->view('admin/active_contract',$contracts);
  
@@ -107,7 +107,7 @@ class admincontroller extends Controller
 			else{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 					
@@ -120,7 +120,7 @@ class admincontroller extends Controller
 	}
 
     
-    public function user_request()
+    public function user_request($database,$url)
     {
     	if(isset($_SESSION['login']))
 		{
@@ -128,26 +128,26 @@ class admincontroller extends Controller
 			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'admin')
 			{
                  $User = $this->model("User");
-                 $allUser = $User->getAllUserRequest();
+                 $allUser = $User->getAllUserRequest($database);
                  $this->view('admin/user_request',$allUser);
  
 			}
 			else{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 					
 		}
 		else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http:".$url); 
          	    exit();
 		}
     }
 
-	public function alluser()
+	public function alluser($database,$url)
 	{
 		if(isset($_SESSION['login']))
 		{
@@ -155,130 +155,130 @@ class admincontroller extends Controller
 			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'admin')
 			{
                  $User = $this->model("User");
-                 $allUser = $User->getAllUser();
+                 $allUser = $User->getAllUser($database);
                  $this->view('admin/alluser',$allUser);
  
 			}
 			else{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 					
 		}
 		else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
          	    exit();
 		}
 	}
 
-	public function accept_user_request($id)
+	public function accept_user_request($database,$url,$id)
 	{
-		if($this->authentic() == true)
+		if($this->authentic($url) == true)
 		{
 			$User = $this->model("User");
-            $result = $User->acceptUserRequest($id);
+            $result = $User->acceptUserRequest($database,$id);
             //echo($id);
             if($result == true)
             {
             	$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/user_request");
+	  		    header("Location: http://".$url."/?url=".$userType."/user_request");
             }
             else
             {
                $userType = $_SESSION['rolename'];
-	  		   header("Location: http://localhost/ccps/public/".$userType."/user_request");
+	  		   header("Location: http://".$url."/?url=".$userType."/user_request");
 		   }
 		}	
 	}
 
-	public function delete_user_request($id)
+	public function delete_user_request($database,$url,$id)
 	{
-		if ($this->authentic() == true)
+		if ($this->authentic($url) == true)
 		{
 			$user = $this->model("User");
 
-			$result = $user->deleteUserRequest($id);
+			$result = $user->deleteUserRequest($database,$id);
 
 			if($result == true)
 			{
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/user_request");
+	  		    header("Location: http://".$url."/?url=".$userType."/user_request");
 			}
 			else
 			{
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/user_request");
+				header("Location: http://".$url."/?url=".$userType."/user_request");
 			}
 		}
 	}
 
-		public function delete_user($id)
+		public function delete_user($database,$url,$id)
 		{
-			if ($this->authentic() == true)
+			if ($this->authentic($url) == true)
 			{
 				$user = $this->model("User");
 
-				$result = $user->deleteUser($id);
+				$result = $user->deleteUser($database,$id);
 
 				if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/alluser");
+		  		    header("Location: http://".$url."/?url=".$userType."/alluser");
 				}
 				else
 				{
 					echo '<script type="text/javascript">
 					 alert("Sorry You cannot delete this User");
-					</script>)';
+					</script>';
 					$userType = $_SESSION['rolename'];
 		  		    //header("refresh:1; http://localhost/ccps/public/".$userType."/alluser");
 
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/alluser';\",150);</script>";
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/alluser';\",150);</script>";
 				}
 			}
 		}
 
-		public function disable_user($id)
+		public function disable_user($database,$url,$id)
 		{
-			if ($this->authentic() == true)
+			if ($this->authentic($url) == true)
 			{
 				$user = $this->model("User");
 
-				$result = $user->disableUser($id);
+				$result = $user->disableUser($database,$id);
 
 				if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/alluser");
+		  		    header("Location: http://".$url."/?url=".$userType."/alluser");
 		  		    exit();
 				}
 				else
 				{
 				   
 				   echo '<script type="text/javascript">
-					 alert("Sorry You cannot disable this User");
-					</script>)';
+					 alert("Sorry You cannot delete this User");
+					</script>';
 					$userType = $_SESSION['rolename'];
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/alluser';\",150);</script>";
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/alluser';\",150);</script>";
 				}
 			}
 		}
 
 
-		public function delete_contract_request($id)
+		public function delete_contract_request($database,$url,$id)
 		{
-			if($this->authentic() == true)
+			if($this->authentic($url) == true)
 			{
 				$Contract_details = $this->model("Contract_details");
-				$result = $Contract_details->deleteContractRequest($id);
+				$result = $Contract_details->deleteContractRequest($database,$id);
 
 				if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/true");
+		  		    header("Location: http://".$url."/?url=".$userType."/true");
 		  		    exit();
 				}
 				else
@@ -287,27 +287,27 @@ class admincontroller extends Controller
 					 alert("Sorry You cannot disable this User");
 					</script>)';
 					$userType = $_SESSION['rolename'];
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/false';\",150);</script>";
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/false';\",150);</script>";
 				} 
 			}
 		}
 
 
-		public function send_contract_request($id)
+		public function send_contract_request($database,$url,$id)
 		{
-			if($this->authentic() == true)
+			if($this->authentic($url) == true)
 			{
 				$user = $this->model("User");
-				$users = $user->getAllStaff();
+				$users = $user->getAllStaff($database);
 
 				$this->view('admin/send_contract',$users,$id);
 			}
 		}
 
 
-		public function send_contract_request_to_staff()
+		public function send_contract_request_to_staff($database,$url)
 		{
-			if($this->authentic() == true)
+			if($this->authentic($url) == true)
 			{
 				$contractsId = $_POST['id'];
 				$monthlyPaymentForStaff = $_POST['monthlyPaymentForStaff'];
@@ -316,12 +316,12 @@ class admincontroller extends Controller
 
 
 				$Contract_details = $this->model("Contract_details");
-				$result = $Contract_details->sendContractRequest($contractsId,$monthlyPaymentForStaff,$Saffid);
+				$result = $Contract_details->sendContractRequest($database,$contractsId,$monthlyPaymentForStaff,$Saffid);
 
 				if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/send");
+		  		    header("Location: http://".$url."/?url=".$userType."/send");
 		  		    exit();
 				}
 				else
@@ -330,23 +330,23 @@ class admincontroller extends Controller
 					 alert("Sorry You cannot disable this User");
 					</script>)';
 					$userType = $_SESSION['rolename'];
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/sorry';\",150);</script>";
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/sorry';\",150);</script>";
 				}
 			}
 		}
 
-		public function delete_send_request($id)
+		public function delete_send_request($database,$url,$id)
 		{
 
-			if($this->authentic() == true)
+			if($this->authentic($url) == true)
 			{
 				$Contract_details = $this->model("Contract_details");
-				$result = $Contract_details->deleteSendRequest($id);
+				$result = $Contract_details->deleteSendRequest($database,$id);
 
 				if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/pending_contract");
+		  		    header("Location: http://".$url."/?url=".$userType."/pending_contract");
 		  		    exit();
 				}
 				else
@@ -355,36 +355,36 @@ class admincontroller extends Controller
 					 alert("Sorry There is something wrong");
 					</script>)';
 					$userType = $_SESSION['rolename'];
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/pending_contract';\",150);</script>";
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/pending_contract';\",150);</script>";
 				}
 			}
 		}
 
 
-		public function receive_payment($id)
+		public function receive_payment($database,$url,$id)
 		{
-			if($this->authentic() == true)
+			if($this->authentic($url) == true)
 			{
 				$Client_payments = $this->model("Client_payments");
-				$Client_payment = $Client_payments->findByContract($id);
+				$Client_payment = $Client_payments->findByContract($database,$id);
 				$this->view('admin/receive_payment',$Client_payment);
 			}
 		}
 
 
-	    public function	receive_payment_by_admin($paymentId, $ContracId)
+	    public function	receive_payment_by_admin($database,$url,$paymentId, $ContracId)
 	    {
-	    	if($this->authentic() == true)
+	    	if($this->authentic($url) == true)
 	    	{
 	    		$Client_payments = $this->model("Client_payments");
 
 
-	    		$result = $Client_payments->receivedPayment($paymentId);
+	    		$result = $Client_payments->receivedPayment($database,$paymentId);
 
 				if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/receive_payment/".$ContracId);
+		  		    header("Location: http://".$url."/?url=".$userType."/receive_payment/".$ContracId);
 		  		    exit();
 				}
 				else
@@ -393,7 +393,7 @@ class admincontroller extends Controller
 					 alert("Sorry There is something wrong");
 					</script>)';
 					$userType = $_SESSION['rolename'];
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/active_contract';\",150);</script>";
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/active_contract';\",150);</script>";
 				}
 				
 			}

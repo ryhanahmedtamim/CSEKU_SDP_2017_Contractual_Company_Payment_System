@@ -3,7 +3,7 @@
     <head>
     <title>NR Company</title>
 
-    <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+   
     </head>
     <body class="body-home" >                  
                 
@@ -68,12 +68,12 @@
                                  </td>
 
                                  <td>
-                                     <a class=" button-radious-8 button-send  button-hover-blue" href="/ccps/public/admin/send_payment/<?php echo $contract['id']; ?>">Send</a>
+                                     <a class=" button-radious-8 button-send  button-hover-blue" href="/?url=admin/send_payment/<?php echo $contract['id']; ?>">Send</a>
 
                                      <?php if($contract['receive'] == 1) 
                                      {
                                         ?>
-                                     <a class=" button-radious-8 button-send  button-hover-blue" href="/ccps/public/admin/receive_payment/<?php echo $contract['id']; ?>">Receive</a>
+                                     <a class=" button-radious-8 button-send  button-hover-blue" href="/?url=admin/receive_payment/<?php echo $contract['id']; ?>">Receive</a>
                                      <?php }
                                      else
                                         {

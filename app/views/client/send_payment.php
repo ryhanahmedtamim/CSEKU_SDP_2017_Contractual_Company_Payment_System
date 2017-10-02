@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Nr Company</title>
-	<link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+	
 </head>
 <body class="body-home">
  
@@ -12,8 +12,9 @@
  			<div class="body-home">
  				<div class="div1">
  					
- 					<div>Send Payment</div>
- 					<form action="http://localhost/ccps/public/client/send_payment" method="POST">
+ 					<div style="margin-left: 30px;font-size: 20px;">Send Payment</div>
+               <hr>
+ 					<form action="/?url=client/send_payment" method="POST">
 
  					<div>
  						<input type="hidden" name="contractId" value="<?php echo $data; ?>">

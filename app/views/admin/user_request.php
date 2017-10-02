@@ -3,7 +3,7 @@
     <head>
     <title>NR Company</title>
 
-    <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+      <link href="http://agent.dgted.com/css/style.css" rel="stylesheet" type="text/css" >
     </head>
     <body class="body-home" >                  
                 
@@ -52,9 +52,9 @@
                                 <td><?php  echo $user['rolename']; ?></td>
                                 
                                 <td > 
-                                <a class="button-radious-8 button-hover-blue button-send" href="accept_user_request/<?php echo $user['id']; ?>">Accept</a>
+                                <a class="button-radious-8 button-hover-blue button-send" href="/?url=admin/accept_user_request/<?php echo $user['id']; ?>">Accept</a>
 
-                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="delete_user_request/<?php echo $user['id']; ?>" >
+                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="/?url=admin/delete_user_request/<?php echo $user['id']; ?>" >
                                         Delete
                                     </a>  
                                     </td>

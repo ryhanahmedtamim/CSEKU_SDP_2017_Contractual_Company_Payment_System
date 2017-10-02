@@ -3,7 +3,6 @@
     <head>
     <title>NR Company</title>
 
-    <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
     </head>
     <body class="body-home" >                  
                 

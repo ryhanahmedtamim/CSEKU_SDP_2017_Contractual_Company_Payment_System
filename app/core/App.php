@@ -4,16 +4,18 @@
 */
 class App 
 {
+	protected $databaseName = [];
 	protected $controller = 'homecontroller';
     protected $methode = 'index';
     protected $paramiters = [];
 
 
-	public function __construct()
+	public function __construct($databaseName1 =[] )
 	{
 		$url = $this->perseUrl();
 
 		//print_r($url);
+		$this->databaseName = $databaseName1;
 
 
 		if(file_exists('../app/controllers/'. $url[0] .'controller.php'))
@@ -35,7 +37,14 @@ class App
 			}
 		}
 
-		$this->paramiters = $url ? array_values($url) : [] ;
+		$this->paramiters = $this->databaseName;
+		//echo $this->databaseName;
+		$_paramiters = $url ? array_values($url) : [] ;
+		
+		
+			$this->paramiters = array_merge($this->paramiters,$_paramiters);
+		
+		
 
 		call_user_func_array([$this->controller, $this->methode],$this->paramiters);
 

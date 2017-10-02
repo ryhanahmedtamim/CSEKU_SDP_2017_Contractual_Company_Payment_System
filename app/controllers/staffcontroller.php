@@ -3,12 +3,12 @@ session_start();
 class staffcontroller extends Controller
 {
 
-	public function authentic()
+		public function authentic($url)
 	{
 		if(isset($_SESSION['login']))
 		{
 	
-			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'Staff')
+			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'staff')
 			{
 				 return true; 
 			}
@@ -16,28 +16,28 @@ class staffcontroller extends Controller
 			{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 	    }
 	    else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
          	    exit();
 		}
     }
 	
-	public function index(){
+	public function index($database,$url){
 
 	
 	if(isset($_SESSION['login']))
 		{
 	
-			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'Staff')
+			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'staff')
 			{
 				 $Contract_details = $this->model("Contract_details");
 				 $myId = $_SESSION['id'];
-				 $contracts = $Contract_details->getStaffContractRequest($myId);
+				 $contracts = $Contract_details->getStaffContractRequest($database,$myId);
                  $this->view('staff/home',$contracts);
  
 			}
@@ -45,29 +45,29 @@ class staffcontroller extends Controller
 			{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 					
 		}
 		else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
          	    exit();
 		}
    }
 
 
-   public function active_contract()
+   public function active_contract($database,$url)
    {
    		if(isset($_SESSION['login']))
 		{
 	
-			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'Staff')
+			if($_SESSION['login'] == '1' && $_SESSION['rolename'] == 'staff')
 			{
 				 $Contract_details = $this->model("Contract_details");
 				 $id = $_SESSION['id'];
-			     $contracts = $Contract_details->getStaffContract($id);
+			     $contracts = $Contract_details->getStaffContract($database,$id);
                  $this->view('staff/active_contract',$contracts);
  
 			}
@@ -75,33 +75,33 @@ class staffcontroller extends Controller
 			{
 
 				$userType = $_SESSION['rolename'];
-	  		    header("Location: http://localhost/ccps/public/".$userType."/home"); 
+	  		    header("Location: http://".$url."/?url=".$userType."/home"); 
          	    exit();	
 			}
 					
 		}
 		else
 		{
-			header("Location: http://localhost/ccps/public/"); 
+			header("Location: http://".$url); 
          	    exit();
 		}
 
    }
 
 
-   public function accept_contrac_request($id)
+   public function accept_contrac_request($database,$url,$id)
    {
 
-   	if($this->authentic() == true)
+   	if($this->authentic($url) == true)
    	{
    		$Contract_details = $this->model("Contract_details");
 
-   		$result = $Contract_details->acceptContracRequest($id);
+   		$result = $Contract_details->acceptContracRequest($database,$id);
 
    		if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/home");
+		  		    header("Location: http://".$url."/?url=".$userType."/home");
 		  		    exit();
 				}
 				else
@@ -111,25 +111,25 @@ class staffcontroller extends Controller
 					 alert("Sorry there is some Problem");
 					</script>)';
 					$userType = $_SESSION['rolename'];
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/home';\",150);</script>";
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/home';\",150);</script>";
 				}
    	}
 
    }
 
-   public function delete_contrac_request($id)
+   public function delete_contrac_request($database,$url,$id)
    {
 
-   	if($this->authentic() == true)
+   	if($this->authentic($url) == true)
    	{
    		$Contract_details = $this->model("Contract_details");
 
-   		$result = $Contract_details->deleteContracRequest($id);
+   		$result = $Contract_details->deleteContracRequest($database,$id);
 
    		if($result == true)
 				{
 					$userType = $_SESSION['rolename'];
-		  		    header("Location: http://localhost/ccps/public/".$userType."/home");
+		  		    header("Location: http://".$url."/?url=".$userType."/home");
 		  		    exit();
 				}
 				else
@@ -139,7 +139,7 @@ class staffcontroller extends Controller
 					 alert("Sorry there is some Problem");
 					</script>)';
 					$userType = $_SESSION['rolename'];
-		  		    echo "<script>setTimeout(\"location.href = 'http:////localhost/ccps/public/".$userType."/home';\",150);</script>";
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url".$userType."/home';\",150);</script>";
 				}
    	}
 

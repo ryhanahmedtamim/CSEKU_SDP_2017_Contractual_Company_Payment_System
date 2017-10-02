@@ -1,11 +1,7 @@
     <!DOCTYPE HTML>
 
     <html>
-        <head>
-           
-            <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
-
-             
+        <head>  
 
        
         </head>
@@ -19,9 +15,10 @@
 
             <div class="div1">
 
-                <div>Make Contract</div>
+                <div style="margin-left: 30px;font-size: 20px;">Make Contract</div>
+                <hr>
                 <br>
-                <form  action ="submit_contract" method="POST">
+                <form  action ="/?url=submit_contract" method="POST">
                         <div>
 
                         <label >Monthly Working Day</label>

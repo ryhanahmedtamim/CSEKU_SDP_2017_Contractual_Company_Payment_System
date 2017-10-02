@@ -3,7 +3,7 @@
     <html>
         <head>
             <title>Register</title>
-            <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+            <link href="http://agent.dgted.com/css/style.css" rel="stylesheet" type="text/css" >
 
      <script type="text/javascript">
              
@@ -36,8 +36,8 @@
 
          <ul class="ul1">
            <li class="li1">
-           <a class="li-a" href="/ccps/public/">Home</a></li>
-           <li class="li1"><a class = "li-a"  href="/ccps/public/login">Login</a></li>
+           <a class="li-a" href="/">Home</a></li>
+           <li class="li1"><a class = "li-a"  href="/?url=login">Login</a></li>
            <li class="li1"><a class = "li-a"  href="">Register</a></li>
         </ul>
             <div class="body-home"> 
@@ -74,7 +74,7 @@
                 <hr>
                 <br>
                 
-                <form  action ="register/register" method="POST">
+                <form  action ="/?url=register/register" method="POST">
                         <div>
 
                         <label >Name</label>
@@ -102,8 +102,8 @@
                         <div><label >User Type</label>
                          <select  name="userType" required autofocus>     
                               <option value=""></option>                      
-                              <option value="Staff">Staff</option>
-                              <option value="Client">Client</option>
+                              <option value="staff">Staff</option>
+                              <option value="client">Client</option>
                               
                         </select></div>
 

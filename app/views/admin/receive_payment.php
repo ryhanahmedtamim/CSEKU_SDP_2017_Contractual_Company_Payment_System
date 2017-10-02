@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+
 	<title>Nr Company</title>
+    <link href="http://agent.dgted.com/css/style.css" rel="stylesheet" type="text/css" >
 </head>
 <body class="body-home">
 	<?php 
@@ -49,7 +50,7 @@
                                  <td>
 
                                     
-                                     <a class=" button-radious-8 button-send  button-hover-blue" href="/ccps/public/admin/receive_payment_by_admin/<?php echo $client_payment['id']; ?>/<?php echo $client_payment['contract_id'];?>">Receive</a>
+                                     <a class=" button-radious-8 button-send  button-hover-blue" href="/?url=admin/receive_payment_by_admin/<?php echo $client_payment['id']; ?>/<?php echo $client_payment['contract_id'];?>">Receive</a>
                                      
                                  </td>
 

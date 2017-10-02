@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>NR Company</title>
-	<link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+	<link href="http://agent.dgted.com/css/style.css" rel="stylesheet" type="text/css" >
 </head>
 <body class="body-home">
 
@@ -17,7 +17,7 @@
 
                 <div>Send Contract</div>
                 <br>
-                <form  action ="/ccps/public/admin/send_contract_request_to_staff" method="POST">
+                <form  action ="/?url=admin/send_contract_request_to_staff" method="POST">
                         <div>
 
                         

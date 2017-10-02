@@ -2,8 +2,6 @@
     <html>
     <head>
     <title>NR Company</title>
-
-    <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
     </head>
     <body class="body-home" >                  
                 
@@ -52,11 +50,11 @@
                             ?>   
                             </td>
                                                            
-                                     <td > <a class=" button-radious-8 button-send  button-hover-blue " href="accept_contrac_request/<?php echo $contract['id']; ?>" >
+                                     <td > <a class=" button-radious-8 button-send  button-hover-blue " href="/?url=staff/accept_contrac_request/<?php echo $contract['id']; ?>" >
                                         Accept
                                     </a>
 
-                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="delete_contrac_request/<?php echo $contract['id']; ?>" >
+                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="/?url=staff/delete_contrac_request/<?php echo $contract['id']; ?>" >
                                         Delete
                                     </a> 
 

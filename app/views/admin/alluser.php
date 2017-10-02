@@ -3,7 +3,7 @@
     <head>
     <title>NR Company</title>
 
-    <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+    <link href="http://agent.dgted.com/css/style.css" rel="stylesheet" type="text/css" >
     </head>
     <body class="body-home" >                  
                 
@@ -52,12 +52,12 @@
                                 <td><?php  echo $user['rolename']; ?></td>
                                 
                                 <td >
-                                    <a class=" button-radious-8 button-hovor-disable  button-disable" href="disable_user/<?php echo $user['id']; ?>">Disable</a>
+                                    <a class=" button-radious-8 button-hovor-disable  button-disable" href="/?url=admin/disable_user/<?php echo $user['id']; ?>">Disable</a>
 
-                                     <a  class=" button-radious-8 button-delete button-hovor-delete" href="delete_user/<?php echo $user['id']; ?>">Delete</a>
+                                     <a  class=" button-radious-8 button-delete button-hovor-delete" href="/?url=admin/delete_user/<?php echo $user['id']; ?>">Delete</a>
                                         
                                      </td>
-                                    <td> <a class=" button-radious-8 button-hover-blue button-send" href="user_status_<?php echo $user['rolename']; ?>/<?php echo $user['id'];?>">
+                                    <td> <a class=" button-radious-8 button-hover-blue button-send" href="/?url=admin/user_status_<?php echo $user['rolename']; ?>/<?php echo $user['id'];?>">
                                         Status
                                     </a></td>
                                     </tr>

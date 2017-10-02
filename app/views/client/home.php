@@ -3,7 +3,7 @@
     <head>
     <title>NR Company</title>
 
-    <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+    
     </head>
     <body class="body-home" >                  
                 
@@ -53,7 +53,7 @@
                             ?>   
                             </td>
                                                            
-                                     <td > <a class="button-radious-8 button-send  button-hover-blue"  href="send_payment_view/<?php echo $contract['id']; ?>">
+                                     <td > <a class="button-radious-8 button-send  button-hover-blue"  href="/?url=client/send_payment_view/<?php echo $contract['id']; ?>">
                                         Send Payment
                                     </a>
 

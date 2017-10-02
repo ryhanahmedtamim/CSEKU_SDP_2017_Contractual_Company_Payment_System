@@ -8,29 +8,30 @@ require_once '../app/core/Model.php';
 class Client_payments extends Model
 {
 
-	public function sendPaymentByClient($contractId,$paymentSerial,$amount,$paymentDate)
+	public function sendPaymentByClient($databaseName,$contractId,$paymentSerial,$amount,$paymentDate)
 	{
 		$querString = "INSERT INTO `client_payments` (`id`, `contract_id`, `payment_serial`, `amount_paid`, `date`, `approved_by_manager`) VALUES (NULL, '$contractId', '$paymentSerial', '$amount', '$paymentDate', '0')";
 
-		return $this->booleanQuery($querString);
+
+		return $this->booleanQuery($databaseName,$querString);
 	}
 
-	public function findByContract($contractId)
+	public function findByContract($databaseName,$contractId)
 	{
 		$querString = "SELECT * FROM `client_payments` WHERE `client_payments`.`contract_id` = '$contractId' ";
-		return $this->dataQuery($querString);
+		return $this->dataQuery($databaseName,$querString);
 	}
 
-	public function findUnapprovrByContract($contractId)
+	public function findUnapprovrByContract($databaseName,$contractId)
 	{
 		$querString = "SELECT * FROM `client_payments` WHERE `client_payments`.`contract_id` = '$contractId' AND `client_payments`.`approved_by_manager` = '0' ";
-		return $this->dataQuery($querString);	
+		return $this->dataQuery($databaseName,$querString);	
 	}
 
-	public function receivedPayment($id)
+	public function receivedPayment($databaseName,$id)
 	{
 		$querString = "UPDATE `client_payments` SET `approved_by_manager` = '1'  WHERE `client_payments`.`id` = '$id'";
-		return $this->booleanQuery($querString);
+		return $this->booleanQuery($databaseName,$querString);
 	}
 	
 }

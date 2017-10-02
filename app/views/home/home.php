@@ -7,15 +7,15 @@
     <head>
     <title>Home</title>
 
-    <link href="http://localhost/ccps/public/css/style.css" rel="stylesheet" type="text/css" >
+    <link href="http://agent.dgted.com/css/style.css" rel="stylesheet" type="text/css" >
     </head>
     <body class="body-home" >                  
                 
           <ul class="ul1">
            <li class="li1">
-           <a class="li-a" href="/ccps/public/">Home</a></li>
-           <li class="li1"><a class = "li-a"  href="/ccps/public/login">Login</a></li>
-           <li class="li1"><a class = "li-a"  href="/ccps/public/register">Register</a></li>
+           <a class="li-a" href="">Home</a></li>
+           <li class="li1"><a class = "li-a"  href="/?url=login">Login</a></li>
+           <li class="li1"><a class = "li-a"  href="/?url=register">Register</a></li>
         </ul>
                     
 
