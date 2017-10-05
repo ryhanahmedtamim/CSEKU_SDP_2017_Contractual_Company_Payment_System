@@ -398,6 +398,70 @@ class admincontroller extends Controller
 				
 			}
 	    }
+
+	    public function totalstatus($database,$url)
+		{
+			if($this->authentic($url) == true)
+			{
+				$Contract_details = $this->model("Contract_details");
+				$contracts = $Contract_details->getActiveContract($database);
+				$Client_payments = $this->model("Client_payments");
+				$Client_payment = $Client_payments->getAllPayments($database);
+				$Staff_duty = $this->model("Staff_duty");
+
+				$duties = $Staff_duty->findAll($database);
+
+
+
+
+			$allContract = [];
+
+			//print_r($contracts);
+			if($contracts['0'] != null){
+			foreach ($contracts as $contract) 
+			{
+				$receive = 0;
+
+				foreach ($Client_payment as $payment) 
+				{
+					if($payment['contract_id'] == $contract['id'])
+					{
+						$receive += $payment['amount_paid'];
+					}
+				}
+
+
+				$contract['receive_amount'] = $receive;	
+
+				$monthly_workingday = $contract['monthly_workingday'];
+				$payment_for_staff_monthly = $contract['payment_for_staff_monthly'];
+
+				$payment_par_day = ceil($payment_for_staff_monthly/$monthly_workingday);
+
+				$send = 0;
+
+				foreach ($duties as $duty) 
+				{
+					if($duty['contract_id'] == $contract['id'])
+					{
+						$send += $payment_par_day;
+					}
+				}
+
+
+				$contract['senr_payment'] = $send;
+
+
+				$allContract[] = $contract;
+
+			}
+		}
+		 
+
+				$this->view('admin/total_economical_status',$allContract);
+			}
+		}
+	    
 }
 
 ?>

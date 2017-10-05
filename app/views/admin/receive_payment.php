@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<title><?php echo $_SESSION['company']; ?></title>
+	<title><?php echo  $_SESSION['company']; ?></title>
     <link href="http://agent.dgted.com/css/style.css" rel="stylesheet" type="text/css" >
 </head>
 <body class="body-home">

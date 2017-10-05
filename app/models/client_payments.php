@@ -33,6 +33,11 @@ class Client_payments extends Model
 		$querString = "UPDATE `client_payments` SET `approved_by_manager` = '1'  WHERE `client_payments`.`id` = '$id'";
 		return $this->booleanQuery($databaseName,$querString);
 	}
+	public function getAllPayments($databaseName)
+	{
+		$querString = "SELECT * FROM `client_payments` WHERE `client_payments`.`approved_by_manager` = '1' ";
+		return $this->dataQuery($databaseName,$querString);
+	}
 	
 }
 ?>
