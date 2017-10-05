@@ -12,6 +12,7 @@
         }
         else
         {
+          //print_r($connection);
           return $connection;
         } 
 

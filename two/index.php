@@ -4,11 +4,11 @@ session_start();
 require_once '../app/init.php';
 //require_once '../app/config/database.php';
 
-$url = "two";
+$url = "two.nrcompany.com";
 
 if(!(isset($_SESSION['database'])))
 {
-  $mainDatabaseConnection = getDatabase("root","","ccps");
+  $mainDatabaseConnection = getDatabase("root","1234","csekua5_agent");
   $querString = "SELECT * FROM `user_info` WHERE domain_name = '$url'";
 
   $model = new Model();
