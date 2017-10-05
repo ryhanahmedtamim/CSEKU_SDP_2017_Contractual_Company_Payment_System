@@ -1,3 +1,4 @@
+
 <?php
 
 require_once '../app/core/Model.php';
@@ -16,4 +17,3 @@ class Staff_duty extends Model
 
 	
 }
-?>

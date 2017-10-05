@@ -15,7 +15,7 @@
                <li class="li1"><a class = "li-a"  href="/?url=admin/active_contract">Active contract</a></li>
                <li class="li1"><a class = "li-a"  href="?url=admin/pending_contract">Pending Contract</a></li>
                <li class="li1"><a class = "li-a"  href="/?url=admin/home">Contract Request</a></li>
-               <li class="li1"><a class = "li-a"  href="">Total Economical Status</a></li>
+               <li class="li1"><a class = "li-a"  href="/?url=admin/totalstatus">Total Economical Status</a></li>
 
                <li class="li2"><a class = "li-a"  href="/?url=login/logout">Logout</a></li>
 

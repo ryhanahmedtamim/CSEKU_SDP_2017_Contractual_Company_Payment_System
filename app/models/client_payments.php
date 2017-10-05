@@ -35,8 +35,8 @@ class Client_payments extends Model
 	}
 	public function getAllPayments($databaseName)
 	{
-		$querString = "SELECT * FROM `client_payments` WHERE `client_payments`.`approved_by_manager` = '1' ";
-		return $this->dataQuery($databaseName,$querString);
+		$querString = "SELECT * FROM `client_payments` WHERE  `client_payments`.`approved_by_manager` = '1' ";
+		return $this->dataQuery($databaseName,$querString);		
 	}
 	
 }
