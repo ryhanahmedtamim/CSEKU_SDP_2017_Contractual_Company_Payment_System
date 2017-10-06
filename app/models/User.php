@@ -136,6 +136,24 @@ class User extends Model
 		}
 	}
 
+	public function loginMobileUser($databaseName,$userName,$password)
+	{
+		$querString = "SELECT * FROM `users` WHERE username = '$userName' AND password = '$password' AND approve = '1'";
+		$user = $this->singleDataQuery($databaseName,$querString);
+
+		if($user != NULL)
+		{
+			return $user;
+		}
+		else
+		{
+			return "Error";
+		}
+		//session_start();
+
+		
+	}
+
 }
 
 

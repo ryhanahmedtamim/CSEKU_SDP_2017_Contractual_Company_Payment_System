@@ -71,6 +71,20 @@ class logincontroller extends Controller
 	  }
 
 	}
+
+
+	public function mob_login($databaseName,$url)
+	{
+		$userName = $_POST['userName'];
+		 $password = $_POST['password'];
+		 $password = md5($password);
+
+	    $User = $this->model("User");
+
+	    $result = $User->loginMobileUser($databaseName,$userName,$password);
+	    echo json_encode($result);
+
+	}
 }
 
 ?>
