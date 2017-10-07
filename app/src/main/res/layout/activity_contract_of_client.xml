@@ -12,10 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ListView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:id="@+id/contractList" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textViewOfClientContract"
+            android:layout_gravity="center_horizontal" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/contracOfClient"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </RelativeLayout>

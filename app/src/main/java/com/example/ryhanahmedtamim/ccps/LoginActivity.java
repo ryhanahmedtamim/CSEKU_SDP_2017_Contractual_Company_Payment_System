@@ -2,6 +2,7 @@ package com.example.ryhanahmedtamim.ccps;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -90,6 +91,17 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString(ID, id);
                                 editor.putString(roleName,userRolename);
                                 editor.commit();
+
+                                if(userRolename.equals("staff"))
+                                {
+                                    Intent intent = new Intent(LoginActivity.this,ContractOfStaffActivity.class);
+                                    startActivity(intent);
+                                }
+                                else
+                                {
+                                    Intent intent = new Intent(LoginActivity.this,ContractOfClientActivity.class);
+                                    startActivity(intent);
+                                }
 
                                 Toast.makeText(getApplicationContext(),sharedpreferences.getString(Username, ""),Toast.LENGTH_LONG).show();
 

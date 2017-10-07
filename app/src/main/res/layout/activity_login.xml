@@ -14,6 +14,7 @@
         android:layout_height="67dp"
         android:text="NR Company"
         android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textViewOfLogin"
         android:elegantTextHeight="false" />
 
@@ -29,6 +30,7 @@
             android:layout_width="301dp"
             android:gravity="center"
             android:layout_height="wrap_content"
+            android:inputType="textPersonName"
             android:id="@+id/userName"
             android:layout_gravity="center_horizontal"
             android:hint="User Name" />
