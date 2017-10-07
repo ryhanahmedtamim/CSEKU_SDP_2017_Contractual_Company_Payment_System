@@ -25,6 +25,12 @@ class homecontroller extends Controller
          	    exit();
 		}
 	}
+
+	public function mobile($database,$url)
+	{
+		$json ['company_name'] = $_SESSION['company'];
+		echo json_encode($json);
+	}
 }
 
  ?>
