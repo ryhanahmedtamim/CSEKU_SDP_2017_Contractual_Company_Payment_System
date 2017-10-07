@@ -12,11 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".StaffActivity"></activity>
         <activity android:name=".ClientActivity"></activity>
@@ -26,10 +22,16 @@
         <activity android:name=".PendingOfStaffActivity"></activity>
         <activity android:name=".Middle_Activity_Staff"></activity>
         <activity android:name=".MiddleOfClientActivity"></activity>
-        <activity android:name=".ApprovedDutyActivity"></activity>
+
         <activity android:name=".ApprovedDutyOfStaffActivity"></activity>
         <activity android:name=".ApprovedDutyOfClientActivity"></activity>
-        <activity android:name=".DomainActivity"></activity>
+        <activity android:name=".DomainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
