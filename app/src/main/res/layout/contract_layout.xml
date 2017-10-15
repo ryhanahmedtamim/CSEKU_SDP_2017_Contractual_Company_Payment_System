@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginEnd="1dp">
+
+            <TextView
+                android:id="@+id/contractName"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="Physics"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+
+                />
+
+            <TextView
+                android:id="@+id/staffOrClientName"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Staff Name: Ryata"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:layout_alignBaseline="@+id/contractName"
+                android:layout_alignBottom="@+id/contractName"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contractName"
+                android:text="Phone No. : 0170000000000"
+                />
+
+        </RelativeLayout>
+
+</RelativeLayout>
