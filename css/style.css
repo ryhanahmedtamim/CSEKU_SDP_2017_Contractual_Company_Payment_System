@@ -40,6 +40,21 @@
 
     cursor: pointer;
 }
+.button-filter {
+    float: right;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin: 4px 195px;
+
+    cursor: pointer;
+}
 .button-register{
 
       float: right;
@@ -76,7 +91,7 @@
      border-color: #ac2925;
     
     border: none;
-    padding: 7px 20px;
+    padding: 7px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -97,7 +112,7 @@
     background-color: #d9534f;
     border-color: #d43f3a; 
     border: none;
-    padding: 7px 20px;
+    padding: 7px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

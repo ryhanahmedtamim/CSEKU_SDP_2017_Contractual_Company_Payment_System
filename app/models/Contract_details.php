@@ -15,9 +15,9 @@ class Contract_details extends Model
 
 	//client
 
-	public function makeContrac($database,$clinetId,$dayPerMonth,$startingDate,$monthlyPayment,$monthLimit)
+	public function makeContrac($database, $clinetId,$contractTitle,$workingHour,$latitude,$logitude,$dayPerMonth,$startingDate,$monthlyPayment,$monthLimit)
 	{
-		$querString = "INSERT INTO `contract_details` (`id`, `client_id`, `staff_id`, `start_date`, `monthly_workingday`, `payment_from_client_monthly`, `payment_for_staff_monthly`, `month_limit`, `active`) VALUES (NULL, '$clinetId', NULL, '$startingDate', '$dayPerMonth', '$monthlyPayment', NULL, '$monthLimit', '0')";
+		$querString = "INSERT INTO `contract_details` (`id`, `client_id`, `staff_id`, `contrac_titile`, `latitude`, `longitude`, `working_time`, `start_date`, `monthly_workingday`, `payment_from_client_monthly`, `payment_for_staff_monthly`, `month_limit`, `active`) VALUES (NULL, '$clinetId', NULL, '$contractTitle', '$latitude', '$logitude', '$workingHour', '$startingDate', '$dayPerMonth', '$monthlyPayment', NULL, '$monthLimit', '0')";
 
 		return $this->booleanQuery($database,$querString);
 	}

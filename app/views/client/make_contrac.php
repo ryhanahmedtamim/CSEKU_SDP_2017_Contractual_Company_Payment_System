@@ -18,9 +18,25 @@
                 <div style="margin-left: 30px;font-size: 20px;">Make Contract</div>
                 <hr>
                 <br>
-                <form  action ="/?url=submit_contract" method="POST">
+                <form  action ="/?url=client/submit_contract" method="POST">
                         <div>
+                        <label >Contract Title</label>
+                        <input type="text" id="text" name ="contractTitle" required autofocus/>
+                        </div>
 
+                         <div>
+                         <label >Working Hour</label>
+                        <input type="text" id="text" name ="workingHour" required autofocus/>
+                        </div>
+                        <div>
+                        <label >Latitude</label>
+                        <input type="text" id="text" name ="latitude" required autofocus/>
+                        </div>
+                        <div>
+                        <label >Logitude</label>
+                        <input type="text" id="text" name ="logitude" required autofocus/>
+                        </div>
+                        <div>
                         <label >Monthly Working Day</label>
                         <input type="text" id="text" name ="dayPerMonth" required autofocus/>
                         </div>

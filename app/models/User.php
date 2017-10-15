@@ -147,8 +147,8 @@ class User extends Model
 		}
 		else
 		{
-			$result["result"] = "Error";
-			return $result;
+			
+			return false;
 		}
 		//session_start();
 

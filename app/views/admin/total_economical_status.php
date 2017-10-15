@@ -17,10 +17,29 @@
 
 
     <div class="col-md-8 col-md-offset-2" style="margin-top:50px;">
-            <h1>Total Economical Status</h1><hr>
+            <h1>Total Economical Status <?php
+              if(isset($_POST['filterStart'],$_POST['filterEnd']))
+              {
+                echo $_POST['filterStart']." To " .$_POST['filterEnd'];
+              }
+             ?></h1><hr>
             <div class="panel panel-default" >
                 <div class="panel-body">                     
                     <table class="table table-bordered">
+                      <form  action ="/?url=admin/totalstatus" method="POST">
+                      <div>
+                        <div>
+                          <label>From</label>
+                        <input type="date" id="text" name ="filterStart" required autofocus/>
+                        </div>
+                        <div>
+                          <label>To</label>
+                        <input type="date" id="text" name ="filterEnd" required autofocus/>
+                        </div>
+                        <button type="submit" class="button-filter button-radious-8 button-hover-blue">Filter</button>
+
+                        </div>
+                        
                         <thead>
                             <tr>
                                 <th>Contract Id</th>   

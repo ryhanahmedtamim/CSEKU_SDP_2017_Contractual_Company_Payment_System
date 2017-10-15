@@ -20,39 +20,59 @@ class mobilecontroller extends Controller
 	    else
 	    	return false;
 	}
+
+	public function mob_login($databaseName,$url)
+	{
+		$userName = $_POST['userName'];
+		 $password = $_POST['password'];
+		 $password = md5($password);
+
+	    $Users = $this->model("User");
+
+	    $user = $Users->loginMobileUser($databaseName,$userName,$password);
+
+	    if($user != false )
+	    {
+	    	$id = $user['id'];	
+
+	    	if($user['rolename'] == 'client')
+	    	{
+	    		$contracts = $this->active_contract_of_client($databaseName,$id);
+	    	}
+	    	else
+	    	{
+	    		$contracts = $this->active_contract_of_staff($databaseName,$id);
+	    	}
+	    	
+
+	    	$result['user'] = $user;
+	    	$result['contracts'] = $contracts;
+	    	echo json_encode($result);
+	    }
+
+	    
+
+	}
 	
-	   public function active_contract_of_staff($database,$url,$id,$userName,$password)
+	   public function active_contract_of_staff($database,$id)
 	   {
-	   		if($this->auth($database,$id,$userName,$password))
-	   		{
+	   		
 			$Contract_details = $this->model("Contract_details");
 			$contracts = $Contract_details->getStaffContract($database,$id);
-		    echo json_encode($contracts);
-		    }
-		    else
-		    {
-		    	$result['result'] = "Error";
-
-		    	echo json_encode($result);
-		    }
+		     return $contracts;
+		    
+		    
 
 	   }
 
-	   public function active_contract_of_client($database,$url,$id,$userName,$password)
+	   public function active_contract_of_client($database,$id)
 	   {
-	   		if($this->auth($database,$id,$userName,$password))
-	   		{
+	   		
 			$Contract_details = $this->model("Contract_details");
 			$contracts = $Contract_details->getClientContract($database,$id);
-		    echo json_encode($contracts);
-		    }
-		    else
-		    {
-		    	$result['result'] = "Error";
-
-		    	echo json_encode($result);
-		    }
-
+		   		
+		   	return $contracts;
+		    
 	   }
 }
 

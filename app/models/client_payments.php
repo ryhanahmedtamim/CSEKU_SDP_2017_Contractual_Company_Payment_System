@@ -36,6 +36,24 @@ class Client_payments extends Model
 	public function getAllPayments($databaseName)
 	{
 		$querString = "SELECT * FROM `client_payments` WHERE  `client_payments`.`approved_by_manager` = '1' ";
+
+		if(isset($_POST['filterStart'],$_POST['filterEnd']))
+              {
+              	$filterStart = $_POST['filterStart'];
+              	$filterEnd = $_POST['filterEnd'];
+
+              	$filterStart = str_replace('/', '-', $filterStart);
+                $filterStart = strtotime($filterStart);
+                $filterStart=date('Y-m-d', $filterStart);
+
+                $filterEnd = str_replace('/', '-', $filterEnd);
+                $filterEnd = strtotime($filterEnd);
+                $filterEnd=date('Y-m-d', $filterEnd);
+
+                $querString = "SELECT * FROM `client_payments` WHERE  (`client_payments`.`approved_by_manager` = '1' AND `client_payments`.`date` BETWEEN '$filterStart' AND '$filterEnd' )";
+              }
+
+
 		return $this->dataQuery($databaseName,$querString);		
 	}
 	

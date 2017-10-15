@@ -74,8 +74,16 @@ class clientcontroller extends Controller
 		if($this->authentic($url) == true)
 		{
 			//echo("ddd");
-			if(isset($_POST['dayPerMonth'],$_POST['startingDate'],$_POST['monthlyPayment'],$_POST['monthLimit']))
+			if(isset($_POST['dayPerMonth'],$_POST['startingDate'],$_POST['monthlyPayment'],$_POST['monthLimit'],$_POST['contractTitle'],$_POST['workingHour'],$_POST['latitude'],$_POST['logitude']))
 			{
+				$contractTitle = $_POST['contractTitle'];
+
+				$workingHour = $_POST['workingHour'];
+				$workingHour = $workingHour*60;
+
+				$latitude = $_POST['latitude'];
+				
+				$logitude = $_POST['logitude'];
 				$clinetId = $_SESSION['id'];
 				$dayPerMonth = $_POST['dayPerMonth'];
 				$startingDate = $_POST['startingDate'];
@@ -88,7 +96,7 @@ class clientcontroller extends Controller
 
 				$contract = $this->model('Contract_details');
 
-				$result = $contract->makeContrac($database,$clinetId,$dayPerMonth,$startingDate,$monthlyPayment,$monthLimit);
+				$result = $contract->makeContrac($database, $clinetId,$contractTitle,$workingHour,$latitude,$logitude,$dayPerMonth,$startingDate,$monthlyPayment,$monthLimit);
 				if($result == true)
 				{
 				$$userType = $_SESSION['rolename'];
