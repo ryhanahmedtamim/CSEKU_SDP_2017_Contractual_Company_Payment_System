@@ -18,11 +18,11 @@
 
 
 
-    <div class="col-md-8 col-md-offset-2" style="margin-top:50px;">
+    <div class="col-md-7 col-md-offset-2" style="margin-top:50px;">
             <h1>All User</h1><hr>
             <div class="panel panel-default" >
                 <div class="panel-body">                     
-                    <table class="table table-bordered">
+                    <table class=" table-bordered">
                         <thead>
                             <tr>
                                 <th>Name</th>   
@@ -30,7 +30,7 @@
                                 <th>E-mail</th> 
                                 <th>Role name</th>                              
                                 <th>Action</th>
-                                <th>Status</th>
+                                
                             </tr>
                         </thead>
 
@@ -57,9 +57,7 @@
                                      <a  class=" button-radious-8 button-delete button-hovor-delete" href="/?url=admin/delete_user/<?php echo $user['id']; ?>">Delete</a>
                                         
                                      </td>
-                                    <td> <a class=" button-radious-8 button-hover-blue button-send" href="/?url=admin/user_status_<?php echo $user['rolename']; ?>/<?php echo $user['id'];?>">
-                                        Status
-                                    </a></td>
+                                    
                                     </tr>
                                  
                                 <?php 

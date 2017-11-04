@@ -2,7 +2,9 @@
 <html>
 <head>
 	<title><?php echo  $_SESSION['company']; ?></title>
+
 	<link href="http://agent.dgted.com/css/style.css" rel="stylesheet" type="text/css" >
+
 </head>
 <body class="body-home">
 
@@ -15,7 +17,9 @@
 
             <div class="div1">
 
-                <div>Send Contract</div>
+                <div><h1>Send Contract</h1>
+                  <hr>
+                </div>
                 <br>
                 <form  action ="/?url=admin/send_contract_request_to_staff" method="POST">
                         <div>
@@ -55,7 +59,7 @@
                         
                    
                     
-                         <button type="submit" class="button-submit button-radious-8 button-hover-blue"  >
+                         <button type="submit" class="button-submit-2 button-radious-8 button-hover-blue"  >
                                         Submit
                                     </button>
                     

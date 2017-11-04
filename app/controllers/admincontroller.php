@@ -461,6 +461,79 @@ class admincontroller extends Controller
 				$this->view('admin/total_economical_status',$allContract);
 			}
 		}
+
+		public function send_payment($database,$url,$id)
+		{
+			if($this->authentic($url) == true)
+			{
+				$Staff_duty = $this->model("Staff_duty");
+				$duties = $Staff_duty->approvedDuties($database,$id);
+				//print_r($duties);
+				if($duties['0'] != null)
+				{
+					$this->view('admin/send_payment',$duties);
+				}
+				else
+				{
+					$this->view('admin/send_payment',null);
+				}
+				//
+			}
+		}
+
+		public function send_payment_by_admin($database,$url,$dutyId,$contractId)
+		{
+			if($this->authentic($url) == true)
+			{
+				$Staff_duty = $this->model("Staff_duty");
+				$duties = $Staff_duty->sendPayment($database,$dutyId);
+				$duties = $Staff_duty->approvedDuties($database,$contractId);
+				$this->view('admin/send_payment',$duties);
+				
+			}
+		}
+
+		public function delete_active_contract($database,$url,$contractId)
+		{
+			if($this->authentic($url) == true)
+			{
+				$Staff_duty = $this->model("Staff_duty");
+				$duties = $Staff_duty->approvedDuties($database,$contractId);
+
+				$flag = 1;
+
+				foreach ($duties as $duty) 
+				{
+					if($duty['approved_by_client'] == 1 && $duty['paid'] == 0)
+					{
+						$flag = 0;
+						break;
+					}	
+				}
+				
+
+				if($flag == 1)
+				{
+					$Contract_details = $this->model("Contract_details");
+					$result = $Contract_details->deleteActiveContract($database,$contractId);
+
+					if($result == true)
+					{
+						$userType = $_SESSION['rolename'];
+		  		   		 header("Location: http://".$url."/?url=".$userType."/active_contract");
+		  		    	exit();
+					}	
+				}
+				else
+				{
+					echo '<script type="text/javascript">
+					 alert("Sorry You cannot delete this contract");
+					</script>)';
+					$userType = $_SESSION['rolename'];
+		  		    echo "<script>setTimeout(\"location.href = 'http://".$url."/?url=".$userType."/active_contract';\",150);</script>";
+				}
+			}
+		}
 	    
 }
 

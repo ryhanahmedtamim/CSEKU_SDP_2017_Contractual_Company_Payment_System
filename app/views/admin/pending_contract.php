@@ -25,6 +25,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>Contract Title</th>
                                 <th>Client Name</th>   
                                 <th>Staff Name</th> 
                                 <th>Start Date</th>
@@ -44,7 +45,7 @@
                          ?>     
                            
                             <tr>
-                            
+                                <td><?php echo $contract['contrac_titile'] ; ?></td>
                                 <td><?php echo $contract['client_name'] ; ?></td>
                                 <td><?php echo $contract['staff_name'] ; ?></td>
                                 <td><?php echo $contract['start_date'] ; ?></td>

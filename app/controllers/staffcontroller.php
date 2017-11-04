@@ -145,6 +145,51 @@ class staffcontroller extends Controller
 
    }
 
+   public function receive_payment($database,$url,$contractId)
+   {
+   		if($this->authentic($url) == true)
+			{
+				$Staff_duty = $this->model("Staff_duty");				
+				$duties = $Staff_duty->paidDuties($database,$contractId);
+
+				if($duties['0'] != 0)
+				{
+					$this->view('staff/received_payment',$duties);
+				}
+				else
+				{
+					$this->view('staff/received_payment',null);
+				}
+				
+				
+			}
+   }
+
+   public function send_payment_by_staff($database,$url,$id,$contractId)
+   {
+   	if($this->authentic($url) == true)
+			{
+				$Staff_duty = $this->model("Staff_duty");				
+				$result = $Staff_duty->paymentReceivedBystaff($database,$id);
+
+
+
+				if($result == true)
+					{
+						$userType = $_SESSION['rolename'];
+		  		   		 header("Location: http://".$url."/?url=".$userType."/receive_payment/".$contractId);
+		  		    	exit();
+					}
+					else
+					{
+						echo "string";
+		  		    	exit();
+					}
+				
+				
+			}
+   }
+
 
 }
  ?>

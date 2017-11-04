@@ -18,20 +18,21 @@
 
 
 
-    <div class="col-md-8 col-md-offset-2" style="margin-top:50px;">
+    <div class="col-md-9 col-md-offset-1" style="margin-top:50px;">
             <h1>Active Cotract</h1><hr>
             <div class="panel panel-default" >
-                <div class="panel-body">                     
+                                    
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>Contract Title</th>
                                 <th>Client Name</th>   
                                 <th>Staff Name</th> 
                                 <th>Staff Payment</th> 
                                 <th>Client Pay</th> 
                                 <th>Action</th>
                                 <th>Payment</th>
-                                <th>History</th>
+                               
                             </tr>
                         </thead>
                         
@@ -44,7 +45,7 @@
                          ?>     
                            
                             <tr>
-                            
+                                <td><?php echo $contract['contrac_titile'] ; ?></td>
                                 <td><?php echo $contract['client_name'] ; ?></td>
                                 <td><?php echo $contract['staff_name'] ; ?></td>
                                 
@@ -61,7 +62,7 @@
                             ?>   
                             </td>
                                 <td>
-                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="" >
+                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="/?url=admin/delete_active_contract/<?php echo $contract['id']; ?>" >
                                         Delete
                                     </a> 
 
@@ -86,9 +87,7 @@
                                     
                                  </td>
 
-                                 <td>
-                                     <a class=" button-radious-8 button-send  button-hover-blue" href="">History</a>
-                                 </td>
+                                
                             </tr>
                             <?php
                              } 

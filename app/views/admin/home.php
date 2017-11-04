@@ -25,6 +25,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>Contract Title</th>
                                 <th>Client Name</th>   
                                 <th>Start Date</th> 
                                 <th>Working Day</th> 
@@ -42,7 +43,7 @@
                          ?>     
                            
                             <tr>
-                            
+                                <td><?php echo $contract['contrac_titile'] ; ?></td>
                                 <td><?php echo $contract['client_name'] ; ?></td>
                                 <td><?php echo $contract['start_date'] ; ?></td>
                                 <td><?php echo $contract['monthly_workingday'] ; ?></td>

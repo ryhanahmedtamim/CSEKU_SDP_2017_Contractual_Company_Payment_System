@@ -147,6 +147,12 @@ class Contract_details extends Model
 		$querString = "DELETE FROM `contract_details` WHERE `contract_details`.`id` = '$id'";
 		return $this->booleanQuery($database,$querString);
 	}
+	
+	public function deleteActiveContract($database,$contractId)
+	{
+		$querString = "DELETE FROM `contract_details` WHERE `contract_details`.`id` = '$contractId'";
+		return $this->booleanQuery($database,$querString);
+	}
 
 	public function getUserContract($database,$id)
 	{

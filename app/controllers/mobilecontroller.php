@@ -13,7 +13,7 @@ class mobilecontroller extends Controller
 	    $User = $this->model("User");
 
 	    $result = $User->loginMobileUser($databaseName,$userName,$password);
-	    if($result["id"] == $id)
+	   if($result["id"] == $id)
 	    {
 	    	return true;
 	    }
@@ -23,7 +23,7 @@ class mobilecontroller extends Controller
 
 	public function mob_login($databaseName,$url)
 	{
-		$userName = $_POST['userName'];
+		 $userName = $_POST['userName'];
 		 $password = $_POST['password'];
 		 $password = md5($password);
 
@@ -70,10 +70,82 @@ class mobilecontroller extends Controller
 	   		
 			$Contract_details = $this->model("Contract_details");
 			$contracts = $Contract_details->getClientContract($database,$id);
-		   		
-		   	return $contracts;
-		    
+		   	return $contracts;  
 	   }
+
+
+	   public function submit_duty($database,$url)
+	   {
+	   		
+		    $contractId = $_POST['contractId'];
+		    $dutyDate = $_POST['dutyDate'];
+		    $dutyDate = str_replace('/', '-', $dutyDate);
+            $dutyDate = strtotime($dutyDate);
+            $dutyDate=date('Y-m-d', $dutyDate);
+
+		    $nextDate = $_POST['nextDate'];
+		    $nextDate = str_replace('/', '-', $nextDate);
+            $nextDate = strtotime($nextDate);
+            $nextDate=date('Y-m-d', $nextDate);        
+
+            
+            	$Staff_duty = $this->model("Staff_duty");
+
+            	$duty = $Staff_duty->submitDuty($database,$contractId,$dutyDate,$nextDate);
+            	
+            	if($duty == true)
+            	{
+            		$result['result'] = $duty;
+
+            	    echo json_encode($result);	
+            	}
+            	else
+            	{
+            		$result['result'] = $duty;
+            		echo json_encode($result);	
+            	}       
+
+
+	   }
+
+	   public function get_pending_duties($database, $url,$contractId)
+	   {
+	   		$Staff_duty = $this->model("Staff_duty");
+
+            $duty = $Staff_duty->pendingDuties($database,$contractId);
+
+            $result['result'] = $duty;
+
+            echo json_encode($result);
+
+	   }
+
+	   public function get_approved_duty($database,$url,$contractId)
+	   {
+
+	   		$Staff_duty = $this->model("Staff_duty");
+
+            $duty = $Staff_duty->approvedDuties($database,$contractId);
+
+            $result['result'] = $duty;
+
+            echo json_encode($result);
+	   }
+
+
+        public function approveDuty($database,$url,$id)
+        {
+        	    $Staff_duty = $this->model("Staff_duty");
+
+            	$duty = $Staff_duty->approveDuty($database,$id);
+
+               $result['result'] = $duty;
+
+               echo json_encode($result);
+
+        }    	
+
+
 }
 
 ?>

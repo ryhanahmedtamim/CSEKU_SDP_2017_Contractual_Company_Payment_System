@@ -28,14 +28,8 @@
                          <label >Working Hour</label>
                         <input type="text" id="text" name ="workingHour" required autofocus/>
                         </div>
-                        <div>
-                        <label >Latitude</label>
-                        <input type="text" id="text" name ="latitude" required autofocus/>
-                        </div>
-                        <div>
-                        <label >Logitude</label>
-                        <input type="text" id="text" name ="logitude" required autofocus/>
-                        </div>
+                        
+
                         <div>
                         <label >Monthly Working Day</label>
                         <input type="text" id="text" name ="dayPerMonth" required autofocus/>
@@ -51,14 +45,17 @@
                         
                         <div><label >Month Limit</label>
                         <input type="text" id="user" name ="monthLimit" required autofocus/></div>
-                        
-
-                
-                         
-                        
-                   
-                    
-                         <button type="submit" class="button-submit button-radious-8 button-hover-blue"  >
+                        <h2>Contract Location</h2>
+                        <hr>
+                        <div>
+                        <label >Latitude</label>
+                        <input type="text" id="text" name ="latitude" required autofocus/>
+                        </div>
+                        <div>
+                        <label >Logitude</label>
+                        <input type="text" id="text" name ="logitude" required autofocus/>
+                        </div>                    
+                         <button type="submit" class="button-submit-3 button-radious-8 button-hover-blue"  >
                                         Submit
                                     </button>
                     

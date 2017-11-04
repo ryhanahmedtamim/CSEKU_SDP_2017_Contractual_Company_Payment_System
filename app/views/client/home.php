@@ -25,8 +25,10 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
+                                <th>Contract Title</th> 
                                 <th>Staff Name</th>
-                                <th>Phone Number</th>    
+                                <th>Phone Number</th> 
+
                                 <th>Month Limit</th>
                                 <th>Payment</th>  
                                 <th>Action</th>
@@ -42,7 +44,7 @@
                          ?>     
                            
                             <tr>
-                            
+                                 <td><?php echo $contract['contrac_titile'] ; ?></td>
                                 <td><?php echo $contract['staff_name'] ; ?></td>
                                 <td><?php echo $contract['contact_no'] ; ?></td>
                                 <td><?php echo $contract['month_limit'] ; ?></td>
@@ -56,11 +58,6 @@
                                      <td > <a class="button-radious-8 button-send  button-hover-blue"  href="/?url=client/send_payment_view/<?php echo $contract['id']; ?>">
                                         Send Payment
                                     </a>
-
-                                     <a class=" button-radious-8 button-delete button-hovor-delete" href="" >
-                                        Delete
-                                    </a> 
-
                                  </td>
                             </tr>
                             <?php
