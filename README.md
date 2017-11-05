@@ -14,17 +14,20 @@ Platform : Web Application, Android Mobile Application
 Project Location : Khulna University, Bangladesh
 
 Project Manager:
+	
+	Dr. Kazi Masudul Alam
+	Assistant Professor
+	CSE Discipline
+	Khulna University,Khulna
 
-   Dr. Kazi Masudul Alam
-   Associate Professor
-   CSE Discipline
-   Khulna University,Khulna
+	
+	Dr. Manishankar Mondal
+	Assistant Professor
+	CSE Discipline
+	Khulna University,Khulna
+
    
-   Dr. Manishankar Mondal
-   Assistant Professor
-   CSE Discipline
-   Khulna University,Khulna
-
+  
 Developed by:
 
 	A.K.M. Fahim Rahman (160215)
