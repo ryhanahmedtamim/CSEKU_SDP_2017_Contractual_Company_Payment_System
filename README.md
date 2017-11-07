@@ -1,8 +1,12 @@
 It is a CSEKU SDP 2017 Project 
-Term : 2-2 
+
+Term : 2-2
+ 
 Batch : 16
+
 Project Name: Contractual Company Payment System
 
+    
 Project Description: 
 
 		Progamming Language : PHP & Android
@@ -16,11 +20,14 @@ Project Location : Khulna University, Bangladesh
 Project Manager:
 	
 	Dr. Kazi Masudul Alam
-	Assistant Professor
+	Associate Professor
 	CSE Discipline
 	Khulna University,Khulna
 
+	         
+	         and
 	
+        	
 	Dr. Manishankar Mondal
 	Assistant Professor
 	CSE Discipline
